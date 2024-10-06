@@ -20,6 +20,9 @@ public class BaseManager : MonoBehaviour
      */
     private void Awake()
     {
+        // FPSを設定
+        SetFps();
+
         // メッセージ処理のためのパラメータを初期化
         param.Init();
 

@@ -26,6 +26,7 @@ public class Constants
     public static readonly string TYPE_BUTTON = "Button";
     public static readonly string TYPE_TEXT = "Text";
 
-    public static readonly string WND_HOME_GOOGLE_MAP = "HomeGoogleMap";
+    public static readonly string WND_HEADER = "WindowHeader";
+    public static readonly string WND_FOOTER = "WindowFooter";
 }
 
