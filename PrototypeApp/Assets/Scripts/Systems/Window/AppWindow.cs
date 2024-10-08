@@ -5,26 +5,25 @@ using UnityEngine.UI;
 
 public class AppWindow : MonoBehaviour
 {
-    private bool isCreated = false;
     [SerializeField] private string wndName = "";
+    public string WndName
+        { get { return wndName; } }
+
+    private bool isCreated = false;
+    public bool IsCreated
+        { get { return isCreated; } }
 
     private bool isOpening = false;
     public bool IsOpening
-    {
-        get { return isOpening; }
-    }
+        { get { return isOpening; } }
 
     [SerializeField] private bool isScroll = true;
     public bool IsScroll
-    {
-        get { return isScroll; }
-    }
+        { get { return isScroll; } }
 
     [SerializeField] private bool isPopUp = false;
     public bool IsPopUp
-    {
-        get { return isPopUp; }
-    }
+        { get { return isPopUp; } }
 
     [SerializeField] private Canvas canvas = null;
     [SerializeField] private Image panel = null;
@@ -61,6 +60,8 @@ public class AppWindow : MonoBehaviour
 
     public int Init()
     {
+        Debug.Log("Window Init [" + wndName + "]");
+
         // 各辞書変数を初期化
         diBackgroundEl = new Dictionary<string, Element>();
         diImageEl = new Dictionary<string, Element>();
@@ -99,6 +100,8 @@ public class AppWindow : MonoBehaviour
         if (isOpening) return Constants.MSG_FAILED;
         isOpening = true;
 
+        Debug.Log("Window Show [" + wndName + "]");
+
         canvas.enabled = true;
         panel.enabled = true;
 
@@ -126,6 +129,8 @@ public class AppWindow : MonoBehaviour
         if (!isOpening) return Constants.MSG_FAILED;
         isOpening = false;
 
+        Debug.Log("Window Close [" + wndName + "]");
+
         canvas.enabled = false;
         panel.enabled = false;
 
@@ -139,44 +144,44 @@ public class AppWindow : MonoBehaviour
         return Constants.MSG_SUCSESS;
     }
 
-    private void ElementsExecute(ref Dictionary<string, Element> diEl, ref Params param)
+    private void ElementsExecute(ref Dictionary<string, Element> diEl)
     {
         foreach (KeyValuePair<string, Element> pair in diEl)
         {
-            pair.Value.Execute(ref param);
+            pair.Value.Execute();
         }
     }
 
-    public void Execute(ref Params param)
+    public void Execute()
     {
         // 開いていない場合は処理しない
         if (!isOpening) return;
 
         // 各要素を実行
-        ElementsExecute(ref diBackgroundEl, ref param);
-        ElementsExecute(ref diImageEl, ref param);
-        ElementsExecute(ref diInputBoxEl, ref param);
-        ElementsExecute(ref diButtonEl, ref param);
-        ElementsExecute(ref diTextEl, ref param);
+        ElementsExecute(ref diBackgroundEl);
+        ElementsExecute(ref diImageEl);
+        ElementsExecute(ref diInputBoxEl);
+        ElementsExecute(ref diButtonEl);
+        ElementsExecute(ref diTextEl);
     }
 
-    private void ElementsMove(ref Dictionary<string, Element> diEl, ref Vector2 vec, ref Params param)
+    private void ElementsMove(ref Dictionary<string, Element> diEl, ref Vector2 vec)
     {
         foreach (KeyValuePair<string, Element> pair in diEl)
         {
-            pair.Value.Move(ref vec, ref param);
+            pair.Value.Move(ref vec);
         }
     }
 
-    public void Move(ref Vector2 moveVec,ref Params param)
+    public void Move(ref Vector2 moveVec)
     {
         if (!isOpening) return;
 
         // 各要素を移動
-        ElementsMove(ref diBackgroundEl, ref moveVec, ref param);
-        ElementsMove(ref diImageEl, ref moveVec, ref param);
-        ElementsMove(ref diInputBoxEl, ref moveVec, ref param);
-        ElementsMove(ref diButtonEl, ref moveVec, ref param);
-        ElementsMove(ref diTextEl, ref moveVec, ref param);
+        ElementsMove(ref diBackgroundEl, ref moveVec);
+        ElementsMove(ref diImageEl, ref moveVec);
+        ElementsMove(ref diInputBoxEl, ref moveVec);
+        ElementsMove(ref diButtonEl, ref moveVec);
+        ElementsMove(ref diTextEl, ref moveVec);
     }
 }

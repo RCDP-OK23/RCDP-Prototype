@@ -4,44 +4,45 @@ using UnityEngine;
 
 public class HomeManager : Manager
 {
-    public override void BaseAwake(ref Params param)
+    public override void BaseAwake()
     {
         Debug.Log("HomeManager Awake");
 
         // Managerに設定されているすべてのWindowを初期化
-        Init(ref param);
+        Init();
 
         // HeaderWindowを表示
-        ShowWindow(Constants.WND_HEADER, ref param);
+        ShowWindow(Constants.WND_HEADER);
 
         // FooterWindowを表示
-        ShowWindow(Constants.WND_FOOTER, ref param);
+        ShowWindow(Constants.WND_FOOTER);
     }
 
-    public override void BaseStart(ref Params param)
+    public override void BaseStart()
     {
         Debug.Log("HomeManager Start");
 
         // 各ウィンドウの処理を実行
-        ExecuteWindows(ref param);
+        ExecuteWindows();
 
         // スクロールされている場合、ウィンドウを移動
-        ScrollWindows(ref param);
+        ScrollWindows();
     }
 
-    public override void BaseUpdate(ref Params param)
+    public override void BaseUpdate()
     {
         // 各ウィンドウの処理を実行
-        ExecuteWindows(ref param);
+        ExecuteWindows();
 
         // 各ウィンドウの処理を実行
-        ScrollWindows(ref param);
+        ScrollWindows();
     }
 
-    public override void BaseExit(ref Params param)
+    public override void BaseExit()
     {
         Debug.Log("HomeManager Exit");
 
-        Destoroy(ref param);
+        // Managerの終了処理を実行
+        Destoroy();
     }
 }

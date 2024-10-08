@@ -12,48 +12,50 @@ abstract public class Manager : MonoBehaviour
     private Dictionary<string, AppWindow> windowNameToIndex = null;
 
     // BaseAwake関数で最初に必ず実行する。Managerクラスの初期化を行う
-    protected void Init(ref Params param)
+    protected void Init()
     {
+        Debug.Log("Manager Init");
+
         windowNameToIndex = new Dictionary<string, AppWindow>();
 
         for (int i = 0; i < windows.Count; i++)
         {
-            windowNameToIndex.Add(windows[i].name, windows[i]);
+            windowNameToIndex.Add(windows[i].WndName, windows[i]);
             windows[i].Init();
         }
     }
 
     // BaseExit関数で最後に必ず実行する。Managerクラスの終了処理を行う
-    protected void Destoroy(ref Params param)
+    protected void Destoroy()
     {
-
+        Debug.Log("Manager Destoroy");
     }
 
     // 引数にウィンドウの名前を指定し、そのウィンドウを表示する
-    protected void ShowWindow(string wndName, ref Params param)
+    protected void ShowWindow(string wndName)
     {
         windows[windows.IndexOf(windowNameToIndex[wndName])].Show();
     }
 
     // 引数にウィンドウの名前を指定し、そのウィンドウを非表示にする
-    protected void CloseWindow(string wndName, ref Params param)
+    protected void CloseWindow(string wndName)
     {
         windows[windows.IndexOf(windowNameToIndex[wndName])].Close();
     }
 
     // すべての開いているウィンドウのイベントが実行の必要があるなら実行する
     // BaseUpdate関数で実行する
-    protected void ExecuteWindows(ref Params param)
+    protected void ExecuteWindows()
     {
         for (int i = 0; i < windows.Count; i++)
         {
-            windows[i].Execute(ref param);
+            windows[i].Execute();
         }
     }
 
     // スクロールすることが検知された場合、ウィンドウをスクロールに合わせて移動させる
     // BaseUpdate関数でExecuteWindows関数のあとに実行する
-    protected void ScrollWindows(ref Params param)
+    protected void ScrollWindows()
     {
         // スクロールによるウィンドウの移動量を取得
         Vector2 moveVec = new Vector2(0, 0);
@@ -61,19 +63,19 @@ abstract public class Manager : MonoBehaviour
         // スクロールする必要があるウィンドウの場合、ウィンドウをスクロールに合わせて移動させる
         for (int i = 0; i < windows.Count; i++)
         {
-            if (windows[i].IsScroll) windows[i].Move(ref moveVec, ref param);
+            if (windows[i].IsScroll) windows[i].Move(ref moveVec);
         }
     }
 
     // UnityのAwake関数の代わりに使用する関数
-    abstract public void BaseAwake(ref Params param);
+    abstract public void BaseAwake();
 
     // UnityのStart関数の代わりに使用する関数
-    abstract public void BaseStart(ref Params param);
+    abstract public void BaseStart();
 
     // UnityのUpdate関数の代わりに使用する関数
-    abstract public void BaseUpdate(ref Params param);
+    abstract public void BaseUpdate();
 
     // シーンが切り替わる際に呼び出される関数
-    abstract public void BaseExit(ref Params param);
+    abstract public void BaseExit();
 }

@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class BaseManager : MonoBehaviour
 {
-    // Manager関数の引数の参照元変数。SystemManagerにデータを渡すために使用。
-    [SerializeField] private Params param;
-
     // シリアル通信スクリプトを持つのゲームオブジェクトを設定
     [SerializeField] private SensorDevice sensorDevice;
 
@@ -20,11 +17,13 @@ public class BaseManager : MonoBehaviour
      */
     private void Awake()
     {
+        Debug.Log("BaseManager Awake");
+
         // FPSを設定
         SetFps();
 
         // メッセージ処理のためのパラメータを初期化
-        param.Init();
+        Params.Init();
 
         // シリアル通信スクリプトを持つゲームオブジェクトを生成
         sensorDevice.Create();
@@ -33,37 +32,47 @@ public class BaseManager : MonoBehaviour
         manager = managerObject.GetComponent<Manager>();
 
         // Managerクラスを継承したクラスのAwake関数を実行
-        manager.BaseAwake(ref param);
+        manager.BaseAwake();
     }
 
     void Start()
     {
+        Debug.Log("BaseManager Start");
+
+        // メッセージ処理のためのパラメータを初期化
+        Params.Init();
+
         // Managerクラスを継承したクラスのStart関数を実行
-        manager.BaseStart(ref param);
+        manager.BaseStart();
     }
 
     void Update()
     {
+        // メッセージ処理のためのパラメータを初期化
+        Params.Init();
+
         // Managerクラスを継承したクラスのUpdate関数を実行
-        manager.BaseUpdate(ref param);
+        manager.BaseUpdate();
     }
 
     // シーンが切り替わる際に呼び出される関数
     private void Exit()
     {
+        Debug.Log("BaseManager Exit");
+
         // Managerクラスを継承したクラスのExit関数を実行
-        manager.BaseExit(ref param);
+        manager.BaseExit();
     }
 
     // 各シーンで必ず一度実行する。FPSの設定を行う。
-    public int SetFps()
+    public void SetFps()
     {
-        return Constants.MSG_NULL;
+        Debug.Log("BaseManager SetFps");
     }
 
-    // paramに格納されたシーン名を元に、シーンを変更する。
-    public int ChangeScene()
+    // Paramに格納されたシーン名を元に、シーンを変更する。
+    public void ChangeScene()
     {
-        return Constants.MSG_NULL;
+        Debug.Log("BaseManager ChangeScene");
     }
 }
