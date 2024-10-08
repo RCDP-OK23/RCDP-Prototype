@@ -6,26 +6,26 @@ public class TextEl : Element
 {
     public override void Init()
     {
-        Debug.Log("Init TextEl [" + ElName + "]");
+        Debug.Log("Init TextEl [" + name + "]");
     }
 
     public override void Show()
     {
-        Debug.Log("Show TextEl [" + ElName + "]");
+        Debug.Log("Show TextEl [" + name + "]");
     }
 
     public override void Close()
     {
-        Debug.Log("Close TextEl [" + ElName + "]");
+        Debug.Log("Close TextEl [" + name + "]");
     }
 
     public override void Execute()
     {
-        Debug.Log("Execute TextEl [" + ElName + "]");
+        Debug.Log("Execute TextEl [" + name + "]");
     }
 
     public override void Move(ref Vector2 vec)
     {
-        Debug.Log("Move TextEl [" + ElName + "]");
+        Debug.Log("Move TextEl [" + name + "]");
     }
 }

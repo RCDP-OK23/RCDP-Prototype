@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class AppWindow : MonoBehaviour
 {
-    [SerializeField] private string wndName = "";
-    public string WndName
-        { get { return wndName; } }
-
     private bool isCreated = false;
     public bool IsCreated
         { get { return isCreated; } }
@@ -60,7 +56,7 @@ public class AppWindow : MonoBehaviour
 
     public int Init()
     {
-        Debug.Log("Window Init [" + wndName + "]");
+        Debug.Log("Window Init [" + name + "]");
 
         // Še«‘•Ï”‚ğ‰Šú‰»
         diBackgroundEl = new Dictionary<string, Element>();
@@ -100,7 +96,7 @@ public class AppWindow : MonoBehaviour
         if (isOpening) return Constants.MSG_FAILED;
         isOpening = true;
 
-        Debug.Log("Window Show [" + wndName + "]");
+        Debug.Log("Window Show [" + name + "]");
 
         canvas.enabled = true;
         panel.enabled = true;
@@ -129,7 +125,7 @@ public class AppWindow : MonoBehaviour
         if (!isOpening) return Constants.MSG_FAILED;
         isOpening = false;
 
-        Debug.Log("Window Close [" + wndName + "]");
+        Debug.Log("Window Close [" + name + "]");
 
         canvas.enabled = false;
         panel.enabled = false;

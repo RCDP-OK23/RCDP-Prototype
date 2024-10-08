@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class HomeManager : Manager
 {
+    [SerializeField] GameObject windowHeader;
+    [SerializeField] GameObject windowFooter;
+
     public override void BaseAwake()
     {
         Debug.Log("HomeManager Awake");
 
         // Manager‚Éİ’è‚³‚ê‚Ä‚¢‚é‚·‚×‚Ä‚ÌWindow‚ğ‰Šú‰»
-        Init();
+        Init(new List<GameObject> { windowHeader, windowFooter});
 
         // HeaderWindow‚ğ•\¦
-        ShowWindow(Constants.WND_HEADER);
+        ShowWindow(windowHeader.name);
 
         // FooterWindow‚ğ•\¦
-        ShowWindow(Constants.WND_FOOTER);
+        ShowWindow(windowFooter.name);
     }
 
     public override void BaseStart()

@@ -6,26 +6,26 @@ public class BackgroundEl : Element
 {
     public override void Init()
     {
-        Debug.Log("Init BackgroundEl [" + ElName + "]");
+        Debug.Log("Init BackgroundEl [" + name + "]");
     }
 
     public override void Show()
     {
-        Debug.Log("Show BackgroundEl [" + ElName + "]");
+        Debug.Log("Show BackgroundEl [" + name + "]");
     }
 
     public override void Close()
     {
-        Debug.Log("Close BackgroundEl [" + ElName + "]");
+        Debug.Log("Close BackgroundEl [" + name + "]");
     }
 
     public override void Execute()
     {
-        Debug.Log("Execute BackgroundEl [" + ElName + "]");
+        Debug.Log("Execute BackgroundEl [" + name + "]");
     }
 
     public override void Move(ref Vector2 vec)
     {
-        Debug.Log("Move BackgroundEl [" + ElName + "]");
+        Debug.Log("Move BackgroundEl [" + name + "]");
     }
 }

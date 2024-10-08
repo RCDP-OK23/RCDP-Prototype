@@ -28,9 +28,5 @@ public class Constants
     public static readonly string TYPE_INPUT_BOX = "InputBox";
     public static readonly string TYPE_BUTTON = "Button";
     public static readonly string TYPE_TEXT = "Text";
-
-    // 各ウィンドウの名前。インスペクター上で以下の文字列で指定する
-    public static readonly string WND_HEADER = "WindowHeader";
-    public static readonly string WND_FOOTER = "WindowFooter";
 }
 

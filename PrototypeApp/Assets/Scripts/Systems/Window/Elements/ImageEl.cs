@@ -6,27 +6,27 @@ public class ImageEl : Element
 {
     public override void Init()
     {
-        Debug.Log("Init ImageEl [" + ElName + "]");
+        Debug.Log("Init ImageEl [" + name + "]");
     }
 
     public override void Show()
     {
-        Debug.Log("Show ImageEl [" + ElName + "]");
+        Debug.Log("Show ImageEl [" + name + "]");
     }
 
     public override void Close()
     {
-        Debug.Log("Close ImageEl [" + ElName + "]");
+        Debug.Log("Close ImageEl [" + name + "]");
     }
 
     public override void Execute()
     {
-        Debug.Log("Execute ImageEl [" + ElName + "]");
+        Debug.Log("Execute ImageEl [" + name + "]");
     }
 
     public override void Move(ref Vector2 vec)
     {
-        Debug.Log("Move ImageEl [" + ElName + "]");
+        Debug.Log("Move ImageEl [" + name + "]");
     }
 }
 

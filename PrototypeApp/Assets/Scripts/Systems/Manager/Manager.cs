@@ -1,26 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 
 abstract public class Manager : MonoBehaviour
 {
-    // シーンで表示するウィンドウをすべてインスペクターで設定
-    [SerializeField] private List<AppWindow> windows = null;
+    // シーンで表示するウィンドウを格納
+    private List<AppWindow> windows = null;
 
     // ウィンドウの名前をキーにし、リストのインデックスを取得するための変数
     private Dictionary<string, AppWindow> windowNameToIndex = null;
 
     // BaseAwake関数で最初に必ず実行する。Managerクラスの初期化を行う
-    protected void Init()
+    protected void Init(List<GameObject> sourceWindows)
     {
         Debug.Log("Manager Init");
 
-        windowNameToIndex = new Dictionary<string, AppWindow>();
+        // ウィンドウを格納する変数の作成
+        windows = new List<AppWindow>();
 
-        for (int i = 0; i < windows.Count; i++)
+        // ウィンドウの名前をキーにし、リストのインデックスを取得するための変数の作成
+        windowNameToIndex = new Dictionary<string, AppWindow>();
+        for (int i = 0; i < sourceWindows.Count; i++)
         {
-            windowNameToIndex.Add(windows[i].WndName, windows[i]);
+            // ウィンドウをリストに追加し、ウィンドウの名前をキーにし、リストのインデックスを取得するための変数に追加
+            windows.Add(sourceWindows[i].GetComponent<AppWindow>());
+            windowNameToIndex.Add(windows[i].name, windows[i]);
+
+            // ウィンドウの初期化
             windows[i].Init();
         }
     }
