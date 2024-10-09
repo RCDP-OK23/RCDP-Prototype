@@ -2,23 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomeManager : Manager
+public class SearchManager : Manager
 {
     [SerializeField] private GameObject windowHeader;
     [SerializeField] private GameObject windowFooter;
-
+    [SerializeField] private GameObject windowSearchBox;
+    [SerializeField] private GameObject windowSearchHistory;
     public override void BaseAwake()
     {
-        Debug.Log("HomeManager Awake");
+        Debug.Log("SearchManagerAwake");
 
         // Managerに設定されているすべてのWindowを初期化
-        Init(new List<GameObject> { windowHeader, windowFooter});
+        Init(new List<GameObject> { windowHeader, windowFooter,windowSearchBox,windowSearchHistory });
 
         // HeaderWindowを表示
         ShowWindow(windowHeader.name);
 
         // FooterWindowを表示
         ShowWindow(windowFooter.name);
+
+        // SearchBoxWindowを表示
+        ShowWindow(windowSearchBox.name);
+
+        //SearchHistoryを表示
+        ShowWindow(windowSearchHistory.name);
+    }
+
+    public override void BaseExit()
+    {
+        Debug.Log("HomeManager Exit");
+
+        // Managerの終了処理を実行
+        Destoroy();
     }
 
     public override void BaseStart()
@@ -39,13 +54,5 @@ public class HomeManager : Manager
 
         // 各ウィンドウの処理を実行
         ScrollWindows();
-    }
-
-    public override void BaseExit()
-    {
-        Debug.Log("HomeManager Exit");
-
-        // Managerの終了処理を実行
-        Destoroy();
     }
 }
