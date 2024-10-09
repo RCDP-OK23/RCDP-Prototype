@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 abstract public class Element : MonoBehaviour
 {
+    // 要素の外枠になる画像を持つGameObjectを設定。画像は透明度０にすることで非表示状態にしておく
+    [SerializeField] private GameObject frame;
+
     // エレメントの種類を設定
     [SerializeField] private string type = "";
     public string Type { get { return type; } }
