@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class TextEl : Element
 {
     public override void Init()
@@ -22,10 +24,5 @@ public class TextEl : Element
     public override void Execute()
     {
         Debug.Log("Execute TextEl [" + name + "]");
-    }
-
-    public override void Move(ref Vector2 vec)
-    {
-        Debug.Log("Move TextEl [" + name + "]");
     }
 }
