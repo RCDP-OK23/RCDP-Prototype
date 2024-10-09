@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class HomeManager : Manager
 {
-    [SerializeField] GameObject windowHeader;
-    //[SerializeField] GameObject windowFooter;
+    [SerializeField] private GameObject windowHeader;
+    [SerializeField] private GameObject windowFooter;
 
     public override void BaseAwake()
     {
         Debug.Log("HomeManager Awake");
 
-        // Manager‚Éİ’è‚³‚ê‚Ä‚¢‚é‚·‚×‚Ä‚ÌWindow‚ğ‰Šú‰»
+        // Managerã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ã™ã¹ã¦ã®Windowã‚’åˆæœŸåŒ–
         Init(new List<GameObject> { windowHeader });
 
-        // HeaderWindow‚ğ•\¦
+        // HeaderWindowã‚’è¡¨ç¤º
         ShowWindow(windowHeader.name);
 
-        //// FooterWindow‚ğ•\¦
+        //// FooterWindowã‚’è¡¨ç¤º
         //ShowWindow(windowFooter.name);
     }
 
@@ -26,19 +26,19 @@ public class HomeManager : Manager
     {
         Debug.Log("HomeManager Start");
 
-        // ŠeƒEƒBƒ“ƒhƒE‚Ìˆ—‚ğÀs
+        // å„ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å‡¦ç†ã‚’å®Ÿè¡Œ
         ExecuteWindows();
 
-        // ƒXƒNƒ[ƒ‹‚³‚ê‚Ä‚¢‚éê‡AƒEƒBƒ“ƒhƒE‚ğˆÚ“®
+        // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã•ã‚Œã¦ã„ã‚‹å ´åˆã€ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç§»å‹•
         ScrollWindows();
     }
 
     public override void BaseUpdate()
     {
-        // ŠeƒEƒBƒ“ƒhƒE‚Ìˆ—‚ğÀs
+        // å„ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å‡¦ç†ã‚’å®Ÿè¡Œ
         ExecuteWindows();
 
-        // ŠeƒEƒBƒ“ƒhƒE‚Ìˆ—‚ğÀs
+        // å„ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å‡¦ç†ã‚’å®Ÿè¡Œ
         ScrollWindows();
     }
 
@@ -46,7 +46,7 @@ public class HomeManager : Manager
     {
         Debug.Log("HomeManager Exit");
 
-        // Manager‚ÌI—¹ˆ—‚ğÀs
+        // Managerã®çµ‚äº†å‡¦ç†ã‚’å®Ÿè¡Œ
         Destoroy();
     }
 }
