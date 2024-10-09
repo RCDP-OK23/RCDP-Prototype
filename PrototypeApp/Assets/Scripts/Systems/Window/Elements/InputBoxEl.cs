@@ -25,9 +25,4 @@ public class InputBoxEl : Element
     {
         Debug.Log("Execute InputBoxEl [" + name + "]");
     }
-
-    public override void Move(ref Vector2 vec)
-    {
-        Debug.Log("Move InputBoxEl [" + name + "]");
-    }
 }

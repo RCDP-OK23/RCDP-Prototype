@@ -25,9 +25,4 @@ public class TextEl : Element
     {
         Debug.Log("Execute TextEl [" + name + "]");
     }
-
-    public override void Move(ref Vector2 vec)
-    {
-        Debug.Log("Move TextEl [" + name + "]");
-    }
 }

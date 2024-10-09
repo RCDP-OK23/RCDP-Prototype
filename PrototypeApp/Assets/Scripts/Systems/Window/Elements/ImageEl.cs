@@ -25,10 +25,5 @@ public class ImageEl : Element
     {
         Debug.Log("Execute ImageEl [" + name + "]");
     }
-
-    public override void Move(ref Vector2 vec)
-    {
-        Debug.Log("Move ImageEl [" + name + "]");
-    }
 }
 

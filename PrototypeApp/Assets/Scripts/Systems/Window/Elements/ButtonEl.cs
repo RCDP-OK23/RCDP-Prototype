@@ -14,20 +14,22 @@ public class ButtonEl : Element
     public override void Show()
     {
         Debug.Log("Show ButtonEl [" + name + "]");
+
+        IsShow = true;
     }
 
     public override void Close()
     {
         Debug.Log("Close ButtonEl [" + name + "]");
+
+        IsShow = false;
     }
 
     public override void Execute()
     {
-        Debug.Log("Execute ButtonEl [" + name + "]");
-    }
-
-    public override void Move(ref Vector2 vec)
-    {
-        Debug.Log("Move ButtonEl [" + name + "]");
+        if (IsTapped())
+        {
+            Debug.Log("Tapped ButtonEl [" + name + "]");
+        }
     }
 }

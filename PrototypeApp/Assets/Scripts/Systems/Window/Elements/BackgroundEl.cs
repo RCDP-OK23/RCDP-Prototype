@@ -25,9 +25,4 @@ public class BackgroundEl : Element
     {
         Debug.Log("Execute BackgroundEl [" + name + "]");
     }
-
-    public override void Move(ref Vector2 vec)
-    {
-        Debug.Log("Move BackgroundEl [" + name + "]");
-    }
 }
