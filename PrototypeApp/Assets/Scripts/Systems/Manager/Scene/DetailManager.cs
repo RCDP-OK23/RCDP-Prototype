@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SearchManager : Manager
+public class DetailManager : Manager
 {
     [SerializeField] private GameObject windowHeader;
     [SerializeField] private GameObject windowFooter;
-    [SerializeField] private GameObject windowSearchBox;
-    [SerializeField] private GameObject windowSearchHistory;
+    [SerializeField] private GameObject windowWC;
+    [SerializeField] private GameObject windowElevator;
+    [SerializeField] private GameObject windowRoom;
     public override void BaseAwake()
     {
-        Debug.Log("SearchManagerAwake");
-
         // Managerに設定されているすべてのWindowを初期化
-        Init(new List<GameObject> { windowHeader, windowFooter, windowSearchBox, windowSearchHistory });
+        Init(new List<GameObject> { windowHeader, windowFooter, windowWC, windowElevator, windowRoom });
 
         // HeaderWindowを表示
         ShowWindow(windowHeader.name);
@@ -21,11 +20,15 @@ public class SearchManager : Manager
         // FooterWindowを表示
         ShowWindow(windowFooter.name);
 
-        // SearchBoxWindowを表示
-        ShowWindow(windowSearchBox.name);
+        //WCwindowを表示
+        ShowWindow(windowWC.name);
 
-        //SearchHistoryを表示
-        ShowWindow(windowSearchHistory.name);
+        //WCWindowを表示
+        ShowWindow(windowElevator.name);   
+
+        //ElevatorWindowを表示
+        ShowWindow(windowRoom.name);
+
     }
 
     public override void BaseExit()

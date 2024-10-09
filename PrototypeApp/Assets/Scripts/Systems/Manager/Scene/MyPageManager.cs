@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
-public class SearchManager : Manager
+public class NewBehaviourScript : Manager
 {
     [SerializeField] private GameObject windowHeader;
     [SerializeField] private GameObject windowFooter;
-    [SerializeField] private GameObject windowSearchBox;
-    [SerializeField] private GameObject windowSearchHistory;
+    [SerializeField] private GameObject windowList;
     public override void BaseAwake()
     {
-        Debug.Log("SearchManagerAwake");
-
         // Managerに設定されているすべてのWindowを初期化
-        Init(new List<GameObject> { windowHeader, windowFooter, windowSearchBox, windowSearchHistory });
+        Init(new List<GameObject> { windowHeader, windowFooter,windowList });
 
         // HeaderWindowを表示
         ShowWindow(windowHeader.name);
@@ -21,11 +19,8 @@ public class SearchManager : Manager
         // FooterWindowを表示
         ShowWindow(windowFooter.name);
 
-        // SearchBoxWindowを表示
-        ShowWindow(windowSearchBox.name);
-
-        //SearchHistoryを表示
-        ShowWindow(windowSearchHistory.name);
+        //Listwindowを表示
+        ShowWindow(windowList.name);
     }
 
     public override void BaseExit()
@@ -55,4 +50,5 @@ public class SearchManager : Manager
         // 各ウィンドウの処理を実行
         ScrollWindows();
     }
+
 }
