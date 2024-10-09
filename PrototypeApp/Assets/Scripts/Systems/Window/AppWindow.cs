@@ -22,6 +22,8 @@ public class AppWindow : MonoBehaviour
         { get { return isPopUp; } }
 
     [SerializeField] private Canvas canvas = null;
+
+    [SerializeField] private Canvas panelCanvas = null;
     [SerializeField] private Image panel = null;
 
     [SerializeField] private GameObject backgrounds = null;
@@ -57,6 +59,11 @@ public class AppWindow : MonoBehaviour
     public int Init()
     {
         Debug.Log("Window Init [" + name + "]");
+
+        canvas.enabled = false;
+
+        panelCanvas.enabled = false;
+        panel.enabled = false;
 
         // 各辞書変数を初期化
         diBackgroundEl = new Dictionary<string, Element>();
@@ -99,6 +106,7 @@ public class AppWindow : MonoBehaviour
         Debug.Log("Window Show [" + name + "]");
 
         canvas.enabled = true;
+        panelCanvas.enabled = true;
         panel.enabled = true;
 
         // 各要素を表示
@@ -128,6 +136,7 @@ public class AppWindow : MonoBehaviour
         Debug.Log("Window Close [" + name + "]");
 
         canvas.enabled = false;
+        panelCanvas.enabled = false;
         panel.enabled = false;
 
         // 各要素を非表示

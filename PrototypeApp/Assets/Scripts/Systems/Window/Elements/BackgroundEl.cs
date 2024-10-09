@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class BackgroundEl : Element
 {
     public override void Init()
@@ -22,10 +24,5 @@ public class BackgroundEl : Element
     public override void Execute()
     {
         Debug.Log("Execute BackgroundEl [" + name + "]");
-    }
-
-    public override void Move(ref Vector2 vec)
-    {
-        Debug.Log("Move BackgroundEl [" + name + "]");
     }
 }
