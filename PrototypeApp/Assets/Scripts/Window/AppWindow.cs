@@ -22,17 +22,13 @@ public class AppWindow : MonoBehaviour
         { get { return isPopUp; } }
 
     [SerializeField] private Canvas canvas = null;
+    [SerializeField] private Image background = null;
 
-    [SerializeField] private Canvas panelCanvas = null;
-    [SerializeField] private Image panel = null;
-
-    [SerializeField] private GameObject backgrounds = null;
     [SerializeField] private GameObject images = null;
     [SerializeField] private GameObject inputBoxes = null;
     [SerializeField] private GameObject buttons = null;
     [SerializeField] private GameObject texts = null;
 
-    private Dictionary<string, Element> diBackgroundEl;
     private Dictionary<string, Element> diImageEl;
     private Dictionary<string, Element> diInputBoxEl;
     private Dictionary<string, Element> diButtonEl;
@@ -61,32 +57,27 @@ public class AppWindow : MonoBehaviour
         Debug.Log("Window Init [" + name + "]");
 
         canvas.enabled = false;
-
-        panelCanvas.enabled = false;
-        panel.enabled = false;
+        background.enabled = false;
 
         // 各辞書変数を初期化
-        diBackgroundEl = new Dictionary<string, Element>();
         diImageEl = new Dictionary<string, Element>();
         diInputBoxEl = new Dictionary<string, Element>();
         diButtonEl = new Dictionary<string, Element>();
         diTextEl = new Dictionary<string, Element>();
 
         // 各要素を取得
-        GetElements(ref backgrounds, ref diBackgroundEl);
         GetElements(ref images, ref diImageEl);
         GetElements(ref inputBoxes, ref diInputBoxEl);
         GetElements(ref buttons, ref diButtonEl);
         GetElements(ref texts, ref diTextEl);
 
         // 各要素を初期化
-        ElementsInit(ref diBackgroundEl);
         ElementsInit(ref diImageEl);
         ElementsInit(ref diInputBoxEl);
         ElementsInit(ref diButtonEl);
         ElementsInit(ref diTextEl);
 
-        return Constants.MSG_SUCSESS;
+        return Constants.MSG_SUCCESS;
     }
 
     private void ElementsShow(ref Dictionary<string, Element> diEl)
@@ -106,17 +97,15 @@ public class AppWindow : MonoBehaviour
         Debug.Log("Window Show [" + name + "]");
 
         canvas.enabled = true;
-        panelCanvas.enabled = true;
-        panel.enabled = true;
+        background.enabled = true;
 
         // 各要素を表示
-        ElementsShow(ref diBackgroundEl);
         ElementsShow(ref diImageEl);
         ElementsShow(ref diInputBoxEl);
         ElementsShow(ref diButtonEl);
         ElementsShow(ref diTextEl);
 
-        return Constants.MSG_SUCSESS;
+        return Constants.MSG_SUCCESS;
     }
 
     private void ElementsClose(ref Dictionary<string, Element> diEl)
@@ -136,17 +125,15 @@ public class AppWindow : MonoBehaviour
         Debug.Log("Window Close [" + name + "]");
 
         canvas.enabled = false;
-        panelCanvas.enabled = false;
-        panel.enabled = false;
+        background.enabled = false;
 
         // 各要素を非表示
-        ElementsClose(ref diBackgroundEl);
         ElementsClose(ref diImageEl);
         ElementsClose(ref diInputBoxEl);
         ElementsClose(ref diButtonEl);
         ElementsClose(ref diTextEl);
 
-        return Constants.MSG_SUCSESS;
+        return Constants.MSG_SUCCESS;
     }
 
     private void ElementsExecute(ref Dictionary<string, Element> diEl)
@@ -163,7 +150,6 @@ public class AppWindow : MonoBehaviour
         if (!isOpening) return;
 
         // 各要素を実行
-        ElementsExecute(ref diBackgroundEl);
         ElementsExecute(ref diImageEl);
         ElementsExecute(ref diInputBoxEl);
         ElementsExecute(ref diButtonEl);
@@ -183,7 +169,6 @@ public class AppWindow : MonoBehaviour
         if (!isOpening) return;
 
         // 各要素を移動
-        ElementsMove(ref diBackgroundEl, ref moveVec);
         ElementsMove(ref diImageEl, ref moveVec);
         ElementsMove(ref diInputBoxEl, ref moveVec);
         ElementsMove(ref diButtonEl, ref moveVec);

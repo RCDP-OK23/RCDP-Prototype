@@ -42,6 +42,12 @@ public class BaseManager : MonoBehaviour
         // メッセージ処理のためのパラメータを初期化
         Params.Init();
 
+        // FPSを設定
+        SetFps();
+
+        // 解像度を設定
+        SetResolution();
+
         // Managerクラスを継承したクラスのStart関数を実行
         manager.BaseStart();
     }
@@ -67,7 +73,14 @@ public class BaseManager : MonoBehaviour
     // 各シーンで必ず一度実行する。FPSの設定を行う。
     public void SetFps()
     {
-        Debug.Log("BaseManager SetFps");
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = Constants.SPECIFIED_FPS;
+    }
+
+    // 各シーンで必ず一度実行する。解像度の設定を行う。
+    public void SetResolution()
+    {
+        Screen.SetResolution(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, true);
     }
 
     // Paramに格納されたシーン名を元に、シーンを変更する。

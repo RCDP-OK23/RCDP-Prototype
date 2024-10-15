@@ -7,9 +7,13 @@ public class Constants
     // アプリのFPSを設定。アプリのFPSは必ずこの値になるようにする
     public static readonly int SPECIFIED_FPS = 60;
 
+    // 画面解像度
+    public static readonly int SCREEN_WIDTH = 1920;
+    public static readonly int SCREEN_HEIGHT = 1080;
+
     // Paramで使用。各種メッセージを表す
     public static readonly int MSG_NULL = 0;
-    public static readonly int MSG_SUCSESS = 1;
+    public static readonly int MSG_SUCCESS = 1;
     public static readonly int MSG_FAILED = 2;
     public static readonly int MSG_ERROR = 3;
     public static readonly int MSG_WARNING = 4;
