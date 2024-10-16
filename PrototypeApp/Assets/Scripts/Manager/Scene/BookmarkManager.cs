@@ -9,12 +9,13 @@ public class BookmarkManager : Manager
     [SerializeField] private GameObject windowWC;
     [SerializeField] private GameObject windowElevator;
     [SerializeField] private GameObject windowRoom;
+    [SerializeField] private GameObject windowNotif;
  
     // Start is called before the first frame update
     public override void BaseAwake()
     {
         // Manager‚Éİ’è‚³‚ê‚Ä‚¢‚é‚·‚×‚Ä‚ÌWindow‚ğ‰Šú‰»
-        Init(new List<GameObject> { windowHeader, windowFooter, windowWC, windowElevator, windowRoom });
+        Init(new List<GameObject> { windowHeader, windowFooter, windowWC, windowElevator, windowRoom, windowNotif });
         // HeaderWindow‚ğ•\¦
         ShowWindow(windowHeader.name);
 
