@@ -8,14 +8,16 @@ public class HomeManager : Manager
     [SerializeField] private GameObject windowHeader;
     [SerializeField] private GameObject windowFooter;
     [SerializeField] private GameObject windowMap;
-    [SerializeField] private GameObject windowApp;
+    [SerializeField] private GameObject windowPop;
+    [SerializeField] private GameObject windowNotif;
+    
 
     public override void BaseAwake()
     {
         Debug.Log("HomeManager Awake");
 
         // Managerに設定されているすべてのWindowを初期化
-        Init(new List<GameObject> { windowHeader, windowFooter, windowMap, windowApp});
+        Init(new List<GameObject> { windowHeader, windowFooter, windowMap, windowPop, windowNotif });
 
         // HeaderWindowを表示
         ShowWindow(windowHeader.name);
@@ -26,8 +28,7 @@ public class HomeManager : Manager
         // MapWindowを表示
         ShowWindow(windowMap.name);
 
-        //AppWindowを表示
-        ShowWindow(windowApp.name);
+       
     }
 
     public override void BaseStart()
@@ -62,4 +63,31 @@ public class HomeManager : Manager
     {
         Debug.Log("Tap Footer Home");
     }
+
+    public void MapPoint()
+    {
+        Debug.Log("Tap MapPoint");
+
+        //ポップアップウィンドウを表示
+        ShowWindow(windowPop.name);
+    }
+
+    public void CloseStep()
+    {
+        Debug.Log("Tap CloseStep");
+
+        //ポップアップウィンドウを非表示
+        CloseWindow(windowPop.name);
+    }
+
+    public void EventMypage()
+    {
+        Debug.Log("Tap Mypage");
+        //Mypageに移動
+        Params.msg = Constants.MSG_CHANGE_SCENE;
+        Params.strPar = Constants.SCENE_MYPAGE;
+    }
+
+
 }
+

@@ -210,6 +210,67 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2813021392959337372, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
   m_PrefabInstance: {fileID: 56112804}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &74393874
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2813021392959337372, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_Name
+      value: WindowNotif
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084911928232730459, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.15376706
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084911928232730459, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9656981
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084911928232730459, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.06162523
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084911928232730459, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084911928232730459, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084911928232730459, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084911928232730459, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084911928232730459, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084911928232730459, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084911928232730459, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249311444432289540, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
 --- !u!4 &91485712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1775577158161778541, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
@@ -905,12 +966,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
       propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1812550946}
+      objectReference: {fileID: 1812550947}
     - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
       propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MapPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HomeManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4781426287202950598, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
       propertyPath: m_LocalScale.x
@@ -1303,6 +1380,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1812550947}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EventMypage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HomeManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6343160838348496705, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
       propertyPath: m_Name
       value: Mypage jump
@@ -1597,6 +1702,11 @@ Transform:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7848273296650169018, guid: 20d5932493b7e3d40b2a2177291e9d4d, type: 3}
   m_PrefabInstance: {fileID: 1434086254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &808081999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2813021392959337372, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+  m_PrefabInstance: {fileID: 74393874}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &817407219
 GameObject:
@@ -3187,6 +3297,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1812550947}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClpseStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HomeManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6343160838348496705, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
       propertyPath: m_Name
       value: Close
@@ -4013,7 +4151,8 @@ MonoBehaviour:
   windowHeader: {fileID: 1460465048}
   windowFooter: {fileID: 56112805}
   windowMap: {fileID: 513973931}
-  windowApp: {fileID: 1776458986}
+  windowPop: {fileID: 1776458986}
+  windowNotif: {fileID: 808081999}
 --- !u!4 &1817598024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1775577158161778541, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
@@ -4106,6 +4245,7 @@ SceneRoots:
   - {fileID: 817407222}
   - {fileID: 565730861}
   - {fileID: 1812550945}
+  - {fileID: 74393874}
   - {fileID: 1460465047}
   - {fileID: 56112804}
   - {fileID: 513973930}
