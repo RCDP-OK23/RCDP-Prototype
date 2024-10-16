@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BaseManager : MonoBehaviour
 {
@@ -45,15 +46,15 @@ public class BaseManager : MonoBehaviour
         // FPSを設定
         SetFps();
 
-        // 解像度を設定
-        SetResolution();
-
         // Managerクラスを継承したクラスのStart関数を実行
         manager.BaseStart();
     }
 
     void Update()
     {
+        // メッセージを処理
+        ProsessParam();
+
         // メッセージ処理のためのパラメータを初期化
         Params.Init();
 
@@ -77,15 +78,36 @@ public class BaseManager : MonoBehaviour
         Application.targetFrameRate = Constants.SPECIFIED_FPS;
     }
 
-    // 各シーンで必ず一度実行する。解像度の設定を行う。
-    public void SetResolution()
+    // Param処理
+    public void ProsessParam()
     {
-        Screen.SetResolution(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, true);
+        switch (Params.msg)
+        {
+            case Constants.MSG_CHANGE_SCENE:
+                ChangeScene();
+                break;
+            default:
+                break;
+        }
     }
 
     // Paramに格納されたシーン名を元に、シーンを変更する。
     public void ChangeScene()
     {
-        Debug.Log("BaseManager ChangeScene");
+        if (
+            Params.strPar == Constants.SCENE_HOME ||
+            Params.strPar == Constants.SCENE_SEARCH ||
+            Params.strPar == Constants.SCENE_TOPIC ||
+            Params.strPar == Constants.SCENE_MYPAGE ||
+            Params.strPar == Constants.SCENE_BOOKMARK
+        ){
+            Exit();
+
+            // シーン名を取得（例としてParams.sceneNameを使用）
+            string sceneName = Params.strPar;
+
+            // シーンを読み込む
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

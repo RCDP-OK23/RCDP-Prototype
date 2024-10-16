@@ -34,35 +34,33 @@ public class ButtonEl : Element
 
     public override void Execute()
     {
-        if (Application.isEditor)
+#if UNITY_EDITOR
+        if (IsHover() && tappingEvent != null)
         {
-            if (IsHover() && tappingEvent != null)
-            {
-                isTapping = true;
-                tappingEvent.Invoke();
-            }
-            else if (!IsHover() && isTapping)
-            {
-                isTapping = false;
-                unTappingEvent.Invoke();
-            }
-
-            if (IsClick() && tappedEvent != null) tappedEvent.Invoke();
+            isTapping = true;
+            tappingEvent.Invoke();
         }
-        else
+        else if (!IsHover() && isTapping)
         {
-            if (IsTapping() && tappingEvent != null)
-            {
-                isTapping = true;
-                tappingEvent.Invoke();
-            }
-            else if (!IsTapping() && isTapping)
-            {
-                isTapping = false;
-                unTappingEvent.Invoke();
-            }
-
-            if (IsTapped() && tappedEvent != null) tappedEvent.Invoke();
+            isTapping = false;
+            unTappingEvent.Invoke();
         }
+
+        if (IsClick() && tappedEvent != null) tappedEvent.Invoke();
+#else
+        
+        if (IsTapping() && tappingEvent != null)
+        {
+            isTapping = true;
+            tappingEvent.Invoke();
+        }
+        else if (!IsTapping() && isTapping)
+        {
+            isTapping = false;
+            unTappingEvent.Invoke();
+        }
+
+        if (IsTapped() && tappedEvent != null) tappedEvent.Invoke();
+#endif
     }
 }
