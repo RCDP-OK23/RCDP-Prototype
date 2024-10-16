@@ -72,17 +72,35 @@ public class TextEl : Element
 
     public override void Execute()
     {
-        if (IsTapping() && tappingEvent != null)
+        if (Application.isEditor)
         {
-            isTapping = true;
-            tappingEvent.Invoke();
-        }
-        else if (!IsTapping() && isTapping)
-        {
-            isTapping = false;
-            unTappingEvent.Invoke();
-        }
+            if (IsHover() && tappingEvent != null)
+            {
+                isTapping = true;
+                tappingEvent.Invoke();
+            }
+            else if (!IsHover() && isTapping)
+            {
+                isTapping = false;
+                unTappingEvent.Invoke();
+            }
 
-        if (IsTapped() && tappedEvent != null) tappedEvent.Invoke();
+            if (IsClick() && tappedEvent != null) tappedEvent.Invoke();
+        }
+        else
+        {
+            if (IsTapping() && tappingEvent != null)
+            {
+                isTapping = true;
+                tappingEvent.Invoke();
+            }
+            else if (!IsTapping() && isTapping)
+            {
+                isTapping = false;
+                unTappingEvent.Invoke();
+            }
+
+            if (IsTapped() && tappedEvent != null) tappedEvent.Invoke();
+        }
     }
 }

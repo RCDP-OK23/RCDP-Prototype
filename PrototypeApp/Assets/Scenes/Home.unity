@@ -1553,6 +1553,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1812550947}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FooterHome
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HomeManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011692480048869948, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5543984191422895068, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
       propertyPath: m_Sprite
       value: 

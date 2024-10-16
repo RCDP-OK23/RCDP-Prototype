@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 abstract public class Element : MonoBehaviour
@@ -8,6 +9,12 @@ abstract public class Element : MonoBehaviour
     // エレメントの種類を設定
     [SerializeField] private string type = "";
     public string Type { get { return type; } }
+
+    // イベントシステムを設定
+    private EventSystem eventSystem;
+
+    // レイキャスターを設定
+    private GraphicRaycaster raycaster;
 
     // 要素の外枠になる画像を持つGameObjectを設定。画像は透明度０にすることで非表示状態にしておく
     [SerializeField] protected GameObject frame;
@@ -31,6 +38,9 @@ abstract public class Element : MonoBehaviour
     // エレメントの初期化処理。Init関数で呼び出す
     protected void BaseInit()
     {
+        raycaster = GetComponentInParent<GraphicRaycaster>();
+        eventSystem = GetComponentInParent<EventSystem>();
+
         InitImages();
     }
 
@@ -128,6 +138,48 @@ abstract public class Element : MonoBehaviour
                 pair.Value[i].rectTransform.anchoredPosition = newVec;
             }
         }
+    }
+
+    private bool IsUnderMouse()
+    {
+        PointerEventData pointerEventData = new PointerEventData(eventSystem)
+        {
+            position = Input.mousePosition
+        };
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        raycaster.Raycast(pointerEventData, results);
+
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject == frame)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected bool IsClick()
+    {
+        if (!isShow) return false;
+
+        if (Input.GetMouseButtonDown(0) && IsUnderMouse())
+        {
+            return true;
+        }
+        return false;
+    }
+
+    protected bool IsHover()
+    {
+        if (!isShow) return false;
+
+        if (IsUnderMouse())
+        {
+            return true;
+        }
+        return false;
     }
 
     protected bool IsTapped()

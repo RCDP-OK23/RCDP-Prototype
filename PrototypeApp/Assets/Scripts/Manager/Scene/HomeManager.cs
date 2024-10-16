@@ -53,4 +53,9 @@ public class HomeManager : Manager
         // Managerの終了処理を実行
         Destoroy();
     }
+
+    public void FooterHome()
+    {
+        Debug.Log("Tap Footer Home");
+    }
 }
