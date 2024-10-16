@@ -11,4 +11,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Home.unity
     guid: 846fe3c341250c74b9b8d9384413256c
+  - enabled: 1
+    path: Assets/Scenes/Search.unity
+    guid: ce408eb54208682429490eab27f1c4dd
+  - enabled: 1
+    path: Assets/Scenes/MyPage.unity
+    guid: e0a8e65d4973eb44b8a7f7d83bd1a013
+  - enabled: 1
+    path: Assets/Scenes/Detail.unity
+    guid: 875c80a240bfd8647b26345dce7ff166
+  - enabled: 1
+    path: Assets/Scenes/BookMark.unity
+    guid: b82207714e93c8f4d97e9cf5745df0c9
+  - enabled: 1
+    path: Assets/Scenes/Topic.unity
+    guid: 215cad8de293df64d86c40041bfb4687
   m_configObjects: {}

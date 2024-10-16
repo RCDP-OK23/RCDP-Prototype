@@ -214,7 +214,7 @@ abstract public class Element : MonoBehaviour
         if (!isShow || Input.touchCount == 0) return false;
 
         Touch touch = Input.GetTouch(0);
-        if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
+        if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
         {
             PointerEventData pointerEventData = new PointerEventData(eventSystem)
             {

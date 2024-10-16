@@ -57,5 +57,8 @@ public class HomeManager : Manager
     public void FooterHome()
     {
         Debug.Log("Tap Footer Home");
+
+        Params.msg = Constants.MSG_CHANGE_SCENE;
+        Params.strPar = Constants.SCENE_MYPAGE;
     }
 }
