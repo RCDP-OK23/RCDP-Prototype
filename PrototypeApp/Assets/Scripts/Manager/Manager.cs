@@ -39,13 +39,13 @@ abstract public class Manager : MonoBehaviour
     }
 
     // 引数にウィンドウの名前を指定し、そのウィンドウを表示する
-    protected void ShowWindow(string wndName)
+    public void ShowWindow(string wndName)
     {
         windows[windows.IndexOf(windowNameToIndex[wndName])].Show();
     }
 
     // 引数にウィンドウの名前を指定し、そのウィンドウを非表示にする
-    protected void CloseWindow(string wndName)
+    public void CloseWindow(string wndName)
     {
         windows[windows.IndexOf(windowNameToIndex[wndName])].Close();
     }
