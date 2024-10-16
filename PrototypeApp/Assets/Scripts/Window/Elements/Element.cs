@@ -184,31 +184,55 @@ abstract public class Element : MonoBehaviour
 
     protected bool IsTapped()
     {
+        if (!isShow || Input.touchCount == 0) return false;
+
+        Touch touch = Input.GetTouch(0);
+        if (touch.phase == TouchPhase.Ended)
+        {
+            PointerEventData pointerEventData = new PointerEventData(eventSystem)
+            {
+                position = touch.position
+            };
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            raycaster.Raycast(pointerEventData, results);
+
+            foreach (RaycastResult result in results)
+            {
+                if (result.gameObject == frame)
+                {
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 
     protected bool IsTapping()
     {
+        if (!isShow || Input.touchCount == 0) return false;
+
+        Touch touch = Input.GetTouch(0);
+        if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
+        {
+            PointerEventData pointerEventData = new PointerEventData(eventSystem)
+            {
+                position = touch.position
+            };
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            raycaster.Raycast(pointerEventData, results);
+
+            foreach (RaycastResult result in results)
+            {
+                if (result.gameObject == frame)
+                {
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
-
-    // エレメントが表示されているときに、タップされたか判定する処理を記述
-    //protected bool IsTapped()
-    //{
-    //    if (!isShow || Input.touchCount == 0) return false;
-
-    //    Touch touch = Input.GetTouch(0);
-    //    Vector2 touchPosition = touch.position;
-
-    //    if (touch.phase == TouchPhase.Ended)
-    //    {
-    //        RectTransform rectTransform = frame.GetComponent<RectTransform>();
-    //        Vector2 localPoint;
-    //        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, touchPosition, null, out localPoint);
-
-    //        if (rectTransform.rect.Contains(localPoint)) return true;
-    //    }
-
-    //    return false;
-    //}
 }

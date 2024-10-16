@@ -80,7 +80,7 @@ public class BaseManager : MonoBehaviour
     // 各シーンで必ず一度実行する。解像度の設定を行う。
     public void SetResolution()
     {
-        Screen.SetResolution(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, true);
+        //Screen.SetResolution(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, true);
     }
 
     // Paramに格納されたシーン名を元に、シーンを変更する。

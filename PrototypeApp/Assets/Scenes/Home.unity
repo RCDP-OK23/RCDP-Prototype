@@ -3007,6 +3007,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5991503958654171315, guid: 1766d9d809acdd940a68e1ea58a77e8b, type: 3}
+      propertyPath: url
+      value: https://2c4e-2001-268-9a3a-c8b-14c5-62c4-ec04-4b59.ngrok-free.app/get_person_data
+      objectReference: {fileID: 0}
     - target: {fileID: 7442848913040323748, guid: 1766d9d809acdd940a68e1ea58a77e8b, type: 3}
       propertyPath: m_Name
       value: BaseManager
