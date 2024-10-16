@@ -8,13 +8,14 @@ public class HomeManager : Manager
     [SerializeField] private GameObject windowHeader;
     [SerializeField] private GameObject windowFooter;
     [SerializeField] private GameObject windowMap;
+    [SerializeField] private GameObject windowApp;
 
     public override void BaseAwake()
     {
         Debug.Log("HomeManager Awake");
 
         // Managerに設定されているすべてのWindowを初期化
-        Init(new List<GameObject> { windowHeader, windowFooter, windowMap });
+        Init(new List<GameObject> { windowHeader, windowFooter, windowMap, windowApp});
 
         // HeaderWindowを表示
         ShowWindow(windowHeader.name);
@@ -24,6 +25,9 @@ public class HomeManager : Manager
 
         // MapWindowを表示
         ShowWindow(windowMap.name);
+
+        //AppWindowを表示
+        ShowWindow(windowApp.name);
     }
 
     public override void BaseStart()
