@@ -189,6 +189,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 667983791094130787}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EventGoMyPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WindowHeader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5658410542635531717, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.3977
@@ -344,6 +372,34 @@ PrefabInstance:
     - target: {fileID: 446413374461992917, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 667983791094130787}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EventOpenNotif
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WindowHeader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
+      propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5658410542635531717, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
       propertyPath: m_LocalScale.x
@@ -532,6 +588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c09b2d0c4070674482ab2ca42eaaab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneManager: {fileID: 0}
+  windowNotif: {fileID: 0}
 --- !u!4 &6600577101267730072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3703330468937236274, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}

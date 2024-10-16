@@ -938,6 +938,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 667983791094130787, guid: f1062166df03b294e8f153b9ce3adcc1, type: 3}
+      propertyPath: windowNotif
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 667983791094130787, guid: f1062166df03b294e8f153b9ce3adcc1, type: 3}
+      propertyPath: sceneManager
+      value: 
+      objectReference: {fileID: 1812550947}
     - target: {fileID: 5761500972378223158, guid: f1062166df03b294e8f153b9ce3adcc1, type: 3}
       propertyPath: m_Name
       value: WindowHeader
