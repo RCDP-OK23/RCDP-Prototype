@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class WindowFooter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void EventGoHome()
     {
-        
+        Params.msg = Constants.MSG_CHANGE_SCENE;
+        Params.strPar = Constants.SCENE_HOME;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EventGoSearch()
     {
-        
+        Params.msg = Constants.MSG_CHANGE_SCENE;
+        Params.strPar = Constants.SCENE_SEARCH;
+    }
+
+    public void EventGoBookmark()
+    {
+        Params.msg = Constants.MSG_CHANGE_SCENE;
+        Params.strPar = Constants.SCENE_BOOKMARK;
+    }
+
+    public void EventGoTopic()
+    {
+        Params.msg = Constants.MSG_CHANGE_SCENE;
+        Params.strPar = Constants.SCENE_TOPIC;
     }
 }

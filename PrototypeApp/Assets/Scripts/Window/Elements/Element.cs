@@ -28,6 +28,9 @@ abstract public class Element : MonoBehaviour
     // 使用する画像を格納
     private Dictionary<string, List<Image>> diImageGroups;
 
+    // 使用するテキストを格納
+    protected Dictionary<string, Text> diTexts;
+
     // 画像グループの表示状態を設定
     private Dictionary<string, bool> diGroupShow;
 
@@ -106,6 +109,22 @@ abstract public class Element : MonoBehaviour
         foreach (KeyValuePair<string, List<Image>> pair in diImageGroups)
         {
             ShowImages(val, pair.Key);
+        }
+    }
+
+    public void ShowText(bool val, string name)
+    {
+        if (diTexts.ContainsKey(name))
+        {
+            diTexts[name].enabled = val;
+        }
+    }
+
+    protected void ShowAllTexts(bool val)
+    {
+        foreach (KeyValuePair<string, Text> pair in diTexts)
+        {
+            pair.Value.enabled = val;
         }
     }
 
