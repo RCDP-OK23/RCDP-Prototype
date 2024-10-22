@@ -44,6 +44,8 @@ abstract public class Element : MonoBehaviour
         raycaster = GetComponentInParent<GraphicRaycaster>();
         eventSystem = GetComponentInParent<EventSystem>();
 
+        diTexts = new Dictionary<string, Text>();
+
         InitImages();
     }
 

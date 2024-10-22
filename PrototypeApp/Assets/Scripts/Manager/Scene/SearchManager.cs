@@ -9,6 +9,7 @@ public class SearchManager : Manager
     [SerializeField] private GameObject windowFooter;
     [SerializeField] private GameObject windowSearchBox;
     [SerializeField] private GameObject windowSearchHistory;
+    [SerializeField] private GameObject windowBackground;
 
     [SerializeField] private float historyScrollBottom;
     public override void BaseAwake()
@@ -16,7 +17,11 @@ public class SearchManager : Manager
         Debug.Log("SearchManagerAwake");
 
         // Manager‚Éİ’è‚³‚ê‚Ä‚¢‚é‚·‚×‚Ä‚ÌWindow‚ğ‰Šú‰»
-        Init(new List<GameObject> { windowHeader, windowFooter, windowNotif, windowSearchBox, windowSearchHistory });
+        Init(new List<GameObject> 
+        { 
+            windowHeader, windowFooter, windowNotif, 
+            windowSearchBox, windowSearchHistory, windowBackground 
+        });
 
         // HeaderWindow‚ğ•\¦
         ShowWindow(windowHeader.name);
@@ -29,6 +34,9 @@ public class SearchManager : Manager
 
         //SearchHistory‚ğ•\¦
         ShowWindow(windowSearchHistory.name);
+
+        // BackgroundWindow‚ğ•\¦
+        ShowWindow(windowBackground.name);
     }
 
     public override void BaseExit()

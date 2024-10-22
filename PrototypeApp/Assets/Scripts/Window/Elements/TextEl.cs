@@ -24,7 +24,6 @@ public class TextEl : Element
         // テキストの初期化処理
         List<GameObject> textList = GetAllChildren(texts);
 
-        diTexts = new Dictionary<string, Text>();
         for (int i = 0; i < textList.Count; i++)
         {
             textList[i].GetComponent<Text>().enabled = false;
