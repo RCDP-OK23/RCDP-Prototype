@@ -7,14 +7,24 @@ public class WindowHeader : MonoBehaviour
     [SerializeField] private Manager sceneManager;
     [SerializeField] private GameObject windowNotif;
 
-    public void EventOpenNotif()
-    {
-        sceneManager.ShowWindow(windowNotif.name);
-    }
+    private bool isNotifOpening = false;
 
-    public void EventCloseNotif()
+    public void EventNotifAction()
     {
-        sceneManager.CloseWindow(windowNotif.name);
+        if (windowNotif.GetComponent<AppWindow>().IsOpening)
+        {
+            sceneManager.CloseWindow(windowNotif.name);
+            isNotifOpening = false;
+        }
+        else if (!windowNotif.GetComponent<AppWindow>().IsOpening)
+        {
+            sceneManager.ShowWindow(windowNotif.name);
+            isNotifOpening = true;
+        }
+        else if (!windowNotif.GetComponent<AppWindow>().IsOpening && isNotifOpening)
+        {
+            sceneManager.ShowWindow(windowNotif.name);
+        }
     }
 
     public void EventGoMyPage()

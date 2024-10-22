@@ -29,8 +29,6 @@ public class BookmarkManager : Manager
 
         //Roomwindow‚ð•\Ž¦
         ShowWindow(windowRoom.name);
-
-
     }
 
     public override void BaseExit()

@@ -8,6 +8,8 @@ public class SearchManager : Manager
     [SerializeField] private GameObject windowFooter;
     [SerializeField] private GameObject windowSearchBox;
     [SerializeField] private GameObject windowSearchHistory;
+
+    [SerializeField] private float historyScrollBottom;
     public override void BaseAwake()
     {
         Debug.Log("SearchManagerAwake");
@@ -44,7 +46,10 @@ public class SearchManager : Manager
         ExecuteWindows();
 
         // スクロールされている場合、ウィンドウを移動
-        ScrollWindows();
+        if (windowSearchHistory.GetComponent<AppWindow>().IsOpening)
+        {
+            ScrollWindows(historyScrollBottom);
+        }
     }
 
     public override void BaseUpdate()

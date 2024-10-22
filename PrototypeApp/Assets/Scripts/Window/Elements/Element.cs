@@ -151,12 +151,29 @@ abstract public class Element : MonoBehaviour
             {
                 Vector2 newVec = new Vector2
                 (
-                    pair.Value[i].rectTransform.anchoredPosition.x + vec.x,
-                    pair.Value[i].rectTransform.anchoredPosition.y + vec.y
+                    pair.Value[i].rectTransform.position.x + vec.x,
+                    pair.Value[i].rectTransform.position.y + vec.y
                 );
-                pair.Value[i].rectTransform.anchoredPosition = newVec;
+                pair.Value[i].rectTransform.position = newVec;
             }
         }
+
+        foreach (KeyValuePair<string, Text> pair in diTexts)
+        {
+            Vector2 newVec = new Vector2
+            (
+                pair.Value.rectTransform.position.x + vec.x,
+                pair.Value.rectTransform.position.y + vec.y
+            );
+            pair.Value.rectTransform.position = newVec;
+        }
+
+        Vector2 newFrameVec = new Vector2
+        (
+            frame.GetComponent<RectTransform>().position.x + vec.x,
+            frame.GetComponent<RectTransform>().position.y + vec.y
+        );
+        frame.GetComponent<RectTransform>().position = newFrameVec;
     }
 
     private bool IsUnderMouse()

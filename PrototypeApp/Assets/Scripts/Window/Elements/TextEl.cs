@@ -9,7 +9,6 @@ public class TextEl : Element
 {
     [SerializeField] public Text defText;
     [SerializeField] private GameObject texts;
-    //private Dictionary<string, Text> diTexts;
 
     private bool isTapping = false;
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 
@@ -10,6 +11,12 @@ abstract public class Manager : MonoBehaviour
 
     // ウィンドウの名前をキーにし、リストのインデックスを取得するための変数
     private Dictionary<string, AppWindow> windowNameToIndex = null;
+
+    // このシーンのウィンドウのスクロールによる移動量を指定。
+    [SerializeField] private float scrollSpeed;
+
+    // 初期位置からの移動量を保存。
+    private Vector2 movedVec;
 
     // BaseAwake関数で最初に必ず実行する。Managerクラスの初期化を行う
     protected void Init(List<GameObject> sourceWindows)
@@ -30,6 +37,8 @@ abstract public class Manager : MonoBehaviour
             // ウィンドウの初期化
             windows[i].Init();
         }
+
+        movedVec = new Vector2(0, 0);
     }
 
     // BaseExit関数で最後に必ず実行する。Managerクラスの終了処理を行う
@@ -47,6 +56,16 @@ abstract public class Manager : MonoBehaviour
     // 引数にウィンドウの名前を指定し、そのウィンドウを非表示にする
     public void CloseWindow(string wndName)
     {
+        // ウィンドウを非表示にした場合、スクロール量をリセットする
+        if
+        (
+            windows[windows.IndexOf(windowNameToIndex[wndName])].IsScroll &&
+            !windows[windows.IndexOf(windowNameToIndex[wndName])].IsPopUp
+        )
+        {
+            windows[windows.IndexOf(windowNameToIndex[wndName])].Move(ref movedVec);
+        }
+
         windows[windows.IndexOf(windowNameToIndex[wndName])].Close();
     }
 
@@ -56,7 +75,17 @@ abstract public class Manager : MonoBehaviour
     {
         for (int i = 0; i < windows.Count; i++)
         {
-            windows[i].Execute();
+            if (windows[i].IsPopUp)
+            {
+                windows[i].Execute();
+                if (Params.popUpWindowDone) return;
+            }
+        }
+
+
+        for (int i = 0; i < windows.Count; i++)
+        {
+            if (!windows[i].IsPopUp) windows[i].Execute();
         }
     }
 
@@ -64,14 +93,105 @@ abstract public class Manager : MonoBehaviour
     // BaseUpdate関数でExecuteWindows関数のあとに実行する
     protected void ScrollWindows()
     {
+#if UNITY_EDITOR
+        // エディタ用のスクロール処理
+
         // スクロールによるウィンドウの移動量を取得
         Vector2 moveVec = new Vector2(0, 0);
 
-        // スクロールする必要があるウィンドウの場合、ウィンドウをスクロールに合わせて移動させる
-        for (int i = 0; i < windows.Count; i++)
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll != 0)
         {
-            if (windows[i].IsScroll) windows[i].Move(ref moveVec);
+            moveVec.y = scroll * scrollSpeed;
+            movedVec -= moveVec;
+
+            // スクロールする必要があるウィンドウの場合、ウィンドウをスクロールに合わせて移動させる
+            for (int i = 0; i < windows.Count; i++)
+            {
+                if (windows[i].IsScroll && !windows[i].IsPopUp) windows[i].Move(ref moveVec);
+            }
         }
+#else
+        // Android用のスクロール処理
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Moved)
+            {
+                Vector2 moveVec = touch.deltaPosition * scrollSpeed * Time.deltaTime;
+                movedVec -= moveVec;
+
+                for (int i = 0; i < windows.Count; i++)
+                {
+                    if (windows[i].IsScroll && !windows[i].IsPopUp) windows[i].Move(ref moveVec);
+                }
+            }
+        }
+#endif
+    }
+
+    // スクロールすることが検知された場合、ウィンドウをスクロールに合わせて移動させる。
+    // BaseUpdate関数でExecuteWindows関数のあとに実行する。
+    // スクロールにより移動できる最低Y値を引数に指定する。
+    protected void ScrollWindows(float bottomY)
+    {
+#if UNITY_EDITOR
+        // エディタ用のスクロール処理
+
+        // スクロールによるウィンドウの移動量を取得
+        Vector2 moveVec = new Vector2(0, 0);
+
+        float scroll = -Input.GetAxis("Mouse ScrollWheel");
+        if (scroll != 0)
+        {
+            moveVec.y = scroll * scrollSpeed;
+
+            movedVec -= moveVec;
+            if (movedVec.y < bottomY)
+            {
+                movedVec += moveVec;
+                return;
+            }
+            else if (movedVec.y > 0)
+            {
+                movedVec += moveVec;
+                return;
+            }
+
+            // スクロールする必要があるウィンドウの場合、ウィンドウをスクロールに合わせて移動させる
+            for (int i = 0; i < windows.Count; i++)
+            {
+                if (windows[i].IsScroll && !windows[i].IsPopUp) windows[i].Move(ref moveVec);
+            }
+        }
+#else
+        // Android用のスクロール処理
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Moved)
+            {
+                Vector2 moveVec = touch.deltaPosition * scrollSpeed * Time.deltaTime;
+
+                movedVec -= moveVec;
+                if (movedVec.y < bottomY)
+                {
+                    movedVec += moveVec;
+                    return;
+                }
+                else if (movedVec.y > 0)
+                {
+                    movedVec += moveVec;
+                    return;
+                }
+
+                for (int i = 0; i < windows.Count; i++)
+                {
+                    if (windows[i].IsScroll && !windows[i].IsPopUp) windows[i].Move(ref moveVec);
+                }
+            }
+        }
+#endif
     }
 
     // UnityのAwake関数の代わりに使用する関数

@@ -27,8 +27,6 @@ public class HomeManager : Manager
 
         // MapWindowを表示
         ShowWindow(windowMap.name);
-
-       
     }
 
     public override void BaseStart()

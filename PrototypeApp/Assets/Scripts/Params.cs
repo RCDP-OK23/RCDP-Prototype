@@ -16,11 +16,14 @@ public class Params : MonoBehaviour
     [HideInInspector] public static float floPar = 0;
     [HideInInspector] public static string strPar = "";
 
+    [HideInInspector] public static bool popUpWindowDone = false;
+
     // 毎フレーム実行され、そのフレーム外でのmsgは保持されない
     public static void Init()
     {
         msg = Constants.MSG_NULL;
         floPar = 0;
         strPar = "";
+        popUpWindowDone = false;
     }
 }
