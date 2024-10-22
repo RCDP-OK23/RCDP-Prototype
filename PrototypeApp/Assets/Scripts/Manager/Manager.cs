@@ -12,8 +12,9 @@ abstract public class Manager : MonoBehaviour
     // ウィンドウの名前をキーにし、リストのインデックスを取得するための変数
     private Dictionary<string, AppWindow> windowNameToIndex = null;
 
-    // このシーンのウィンドウのスクロールによる移動量を指定。
-    [SerializeField] private float scrollSpeed;
+    // ウィンドウのスクロールによる移動量を指定。
+    private float editorScrollSpeed = 400;
+    private float appScrollSpeed = 1;
 
     // 初期位置からの移動量を保存。
     private Vector2 movedVec;
@@ -102,7 +103,7 @@ abstract public class Manager : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0)
         {
-            moveVec.y = scroll * scrollSpeed;
+            moveVec.y = scroll * editorScrollSpeed;
             movedVec -= moveVec;
 
             // スクロールする必要があるウィンドウの場合、ウィンドウをスクロールに合わせて移動させる
@@ -118,7 +119,7 @@ abstract public class Manager : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Moved)
             {
-                Vector2 moveVec = touch.deltaPosition * scrollSpeed * Time.deltaTime;
+                Vector2 moveVec = touch.deltaPosition * appScrollSpeed * Time.deltaTime;
                 movedVec -= moveVec;
 
                 for (int i = 0; i < windows.Count; i++)
@@ -144,7 +145,7 @@ abstract public class Manager : MonoBehaviour
         float scroll = -Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0)
         {
-            moveVec.y = scroll * scrollSpeed;
+            moveVec.y = scroll * editorScrollSpeed;
 
             movedVec -= moveVec;
             if (movedVec.y < bottomY)
@@ -161,7 +162,10 @@ abstract public class Manager : MonoBehaviour
             // スクロールする必要があるウィンドウの場合、ウィンドウをスクロールに合わせて移動させる
             for (int i = 0; i < windows.Count; i++)
             {
-                if (windows[i].IsScroll && !windows[i].IsPopUp) windows[i].Move(ref moveVec);
+                if (windows[i].IsScroll && !windows[i].IsPopUp)
+                {
+                    windows[i].Move(ref moveVec);
+                }
             }
         }
 #else
@@ -171,7 +175,7 @@ abstract public class Manager : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Moved)
             {
-                Vector2 moveVec = touch.deltaPosition * scrollSpeed * Time.deltaTime;
+                Vector2 moveVec = touch.deltaPosition * appScrollSpeed * Time.deltaTime;
 
                 movedVec -= moveVec;
                 if (movedVec.y < bottomY)

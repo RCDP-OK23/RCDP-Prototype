@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SearchManager : Manager
 {
+    [SerializeField] private GameObject windowNotif;
     [SerializeField] private GameObject windowHeader;
     [SerializeField] private GameObject windowFooter;
     [SerializeField] private GameObject windowSearchBox;
@@ -15,7 +16,7 @@ public class SearchManager : Manager
         Debug.Log("SearchManagerAwake");
 
         // Managerに設定されているすべてのWindowを初期化
-        Init(new List<GameObject> { windowHeader, windowFooter, windowSearchBox, windowSearchHistory });
+        Init(new List<GameObject> { windowHeader, windowFooter, windowNotif, windowSearchBox, windowSearchHistory });
 
         // HeaderWindowを表示
         ShowWindow(windowHeader.name);
@@ -32,16 +33,12 @@ public class SearchManager : Manager
 
     public override void BaseExit()
     {
-        Debug.Log("HomeManager Exit");
-
         // Managerの終了処理を実行
         Destoroy();
     }
 
     public override void BaseStart()
     {
-        Debug.Log("HomeManager Start");
-
         // 各ウィンドウの処理を実行
         ExecuteWindows();
 
@@ -57,7 +54,10 @@ public class SearchManager : Manager
         // 各ウィンドウの処理を実行
         ExecuteWindows();
 
-        // 各ウィンドウの処理を実行
-        ScrollWindows();
+        // スクロールされている場合、ウィンドウを移動
+        if (windowSearchHistory.GetComponent<AppWindow>().IsOpening)
+        {
+            ScrollWindows(historyScrollBottom);
+        }
     }
 }
