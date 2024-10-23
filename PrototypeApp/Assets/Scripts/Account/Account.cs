@@ -18,7 +18,7 @@ public class Account : MonoBehaviour
     { get { return mail; } }
 
     // シリアル通信スクリプトを持つのゲームオブジェクトを設定
-    [SerializeField] private List<SensorDevice> devices = null;
+    [SerializeField] public List<SensorDevice> devices = null;
 
     // 検索候補文字列
     [SerializeField] private string searchJapaneseStr;

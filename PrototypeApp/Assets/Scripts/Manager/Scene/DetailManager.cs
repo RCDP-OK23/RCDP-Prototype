@@ -6,13 +6,23 @@ public class DetailManager : Manager
 {
     [SerializeField] private GameObject windowHeader;
     [SerializeField] private GameObject windowFooter;
+    [SerializeField] private GameObject windowNotif;
     [SerializeField] private GameObject windowWC;
     [SerializeField] private GameObject windowElevator;
-    [SerializeField] private GameObject windowRoom;
+    [SerializeField] private GameObject windowClass;
+
+    [SerializeField] private BaseManager baseMg;
+
+    [SerializeField] private GameObject accoutIputOk;
+    [SerializeField] private GameObject accoutOosakaStation;
+
+    [SerializeField] private GameObject deviceClass;
+    [SerializeField] private GameObject deviceElevator;
+
     public override void BaseAwake()
     {
         // Managerに設定されているすべてのWindowを初期化
-        Init(new List<GameObject> { windowHeader, windowFooter, windowWC, windowElevator, windowRoom });
+        Init(new List<GameObject> { windowHeader, windowFooter, windowNotif, windowWC, windowElevator, windowClass });
 
         // HeaderWindowを表示
         ShowWindow(windowHeader.name);
@@ -20,15 +30,26 @@ public class DetailManager : Manager
         // FooterWindowを表示
         ShowWindow(windowFooter.name);
 
-        //WCwindowを表示
-        ShowWindow(windowWC.name);
+        if (baseMg.accounts[(int)Params.floPar].name == accoutIputOk.name)
+        {
+            for (int i = 0; i < accoutIputOk.gameObject.GetComponent<Account>().devices.Count; i++)
+            {
+                if (Params.strPar2 == deviceClass.name)
+                {
+                    ShowWindow(windowClass.name);
+                }
+                else if (Params.strPar2 == deviceElevator.name)
+                {
+                    ShowWindow(windowElevator.name);
+                }
+            }
+        }
+        else if (baseMg.accounts[(int)Params.floPar].name == accoutOosakaStation.name)
+        {
+            ShowWindow(windowWC.name);
+        }
 
-        //WCWindowを表示
-        ShowWindow(windowElevator.name);   
-
-        //ElevatorWindowを表示
-        ShowWindow(windowRoom.name);
-
+        Params.goingDetail = false;
     }
 
     public override void BaseExit()

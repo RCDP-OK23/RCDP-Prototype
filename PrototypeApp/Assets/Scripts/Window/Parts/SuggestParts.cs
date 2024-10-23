@@ -71,5 +71,6 @@ public class SuggestParts : MonoBehaviour
 
         Params.strPar2 = deviceObj.name;
         Params.floPar = accountObj.GetComponent<Account>().ID;
+        Params.goingDetail = true;
     }
 }

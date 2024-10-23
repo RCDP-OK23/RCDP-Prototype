@@ -11,7 +11,7 @@ public class BaseManager : MonoBehaviour
 
     // 現在アプリに存在するアカウントらの親オブジェクト
     [SerializeField] private GameObject accountParent;
-    [SerializeField] private Dictionary<int, Account> accounts;
+    [SerializeField] public Dictionary<int, Account> accounts;
 
     /* 
      * 今回のプロトタイプ版では以下の関数でのみUnityのAwake、Start、Update関数を使用する
@@ -19,13 +19,8 @@ public class BaseManager : MonoBehaviour
      */
     private void Awake()
     {
-        Debug.Log("BaseManager Awake");
-
         // FPSを設定
         SetFps();
-
-        // メッセージ処理のためのパラメータを初期化
-        Params.Init();
 
         // Managerクラスを継承したクラスを持つゲームオブジェクトからManagerクラスを取得
         manager = managerObject.GetComponent<Manager>();
@@ -40,12 +35,13 @@ public class BaseManager : MonoBehaviour
 
         // Managerクラスを継承したクラスのAwake関数を実行
         manager.BaseAwake();
+
+        // メッセージ処理のためのパラメータを初期化
+        Params.Init();
     }
 
     void Start()
     {
-        Debug.Log("BaseManager Start");
-
         // メッセージ処理のためのパラメータを初期化
         Params.Init();
 
@@ -71,8 +67,6 @@ public class BaseManager : MonoBehaviour
     // シーンが切り替わる際に呼び出される関数
     private void Exit()
     {
-        Debug.Log("BaseManager Exit");
-
         // Managerクラスを継承したクラスのExit関数を実行
         manager.BaseExit();
     }

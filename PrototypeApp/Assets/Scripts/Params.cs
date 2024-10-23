@@ -18,13 +18,17 @@ public class Params : MonoBehaviour
     [HideInInspector] public static string strPar2 = "";
 
     [HideInInspector] public static bool popUpWindowDone = false;
+    [HideInInspector] public static bool goingDetail = false;
 
     // 毎フレーム実行され、そのフレーム外でのmsgは保持されない
     public static void Init()
     {
+        if (goingDetail) return;
+
         msg = Constants.MSG_NULL;
         floPar = 0;
         strPar = "";
+        strPar2 = "";
         popUpWindowDone = false;
     }
 }

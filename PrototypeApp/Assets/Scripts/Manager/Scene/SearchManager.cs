@@ -130,33 +130,5 @@ public class SearchManager : Manager
                 }
             }
         }
-
-
-        //string headStr = "";
-        //if (inputText.Length > 0) 
-        //{
-        //    headStr = inputText.Substring(0, 1);
-        //}
-
-        //if (headStr == "I" || headStr == "O" || headStr == "o" || headStr == "В®" || headStr == "Се")
-        //{
-        //    iputOkClass.ShowSuggest(ref suggestCount, maxSuggestCount);
-        //    iputOkElevator.ShowSuggest(ref suggestCount, maxSuggestCount);
-        //    oosakaStationWC.ShowSuggest(ref suggestCount, maxSuggestCount);
-        //}
-        //else if (inputText == "WC") 
-        //{
-        //    CloseAllSuggest();
-        //    oosakaStationWC.ShowSuggest(ref suggestCount, maxSuggestCount);
-        //}
-        //else if (inputText == "")
-        //{
-        //    for (int i = 0; i < suggests.Count; i++)
-        //    {
-        //        suggests[i].CloseSuggest();
-        //    }
-
-        //    suggestCount = 0;
-        //}
     }
 }
