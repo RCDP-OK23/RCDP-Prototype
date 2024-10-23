@@ -15,6 +15,7 @@ public class Params : MonoBehaviour
     // BaseManager関数の引数的なもの。シーンの名前などを指定する
     [HideInInspector] public static float floPar = 0;
     [HideInInspector] public static string strPar = "";
+    [HideInInspector] public static string strPar2 = "";
 
     [HideInInspector] public static bool popUpWindowDone = false;
 

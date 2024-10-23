@@ -17,6 +17,14 @@ public class SearchManager : Manager
     private string inputText = "";
     [SerializeField] private InputField inputField = null;
 
+    private int suggestCount = 0;
+    [SerializeField] private int maxSuggestCount = 3;
+
+    private List<SuggestParts> suggests;
+    [SerializeField] private SuggestParts iputOkClass;
+    [SerializeField] private SuggestParts iputOkElevator;
+    [SerializeField] private SuggestParts oosakaStationWC;
+
     public override void BaseAwake()
     {
         Debug.Log("SearchManagerAwake");
@@ -42,6 +50,12 @@ public class SearchManager : Manager
 
         // BackgroundWindow‚ð•\Ž¦
         ShowWindow(windowBackground.name);
+
+        suggests = new List<SuggestParts> { iputOkClass, iputOkElevator, oosakaStationWC };
+
+        iputOkClass.CloseSuggest();
+        iputOkElevator.CloseSuggest();
+        oosakaStationWC.CloseSuggest();
     }
 
     public override void BaseExit()
@@ -74,9 +88,45 @@ public class SearchManager : Manager
         }
     }
 
+    private void CloseAllSuggest()
+    {
+        for (int i = 0; i < suggests.Count; i++)
+        {
+            suggests[i].CloseSuggest();
+        }
+
+        suggestCount = 0;
+    }
+
     public void EventInputValChange()
     {
         inputText = inputField.text;
-        Debug.Log("InputField Text: " + inputText);
+
+        string headStr = "";
+        if (inputText.Length > 0) 
+        {
+            headStr = inputText.Substring(0, 1);
+        }
+
+        if (headStr == "I" || headStr == "O" || headStr == "o" || headStr == "‚¨" || headStr == "‘å")
+        {
+            iputOkClass.ShowSuggest(ref suggestCount, maxSuggestCount);
+            iputOkElevator.ShowSuggest(ref suggestCount, maxSuggestCount);
+            oosakaStationWC.ShowSuggest(ref suggestCount, maxSuggestCount);
+        }
+        else if (inputText == "WC") 
+        {
+            CloseAllSuggest();
+            oosakaStationWC.ShowSuggest(ref suggestCount, maxSuggestCount);
+        }
+        else if (inputText == "")
+        {
+            for (int i = 0; i < suggests.Count; i++)
+            {
+                suggests[i].CloseSuggest();
+            }
+
+            suggestCount = 0;
+        }
     }
 }

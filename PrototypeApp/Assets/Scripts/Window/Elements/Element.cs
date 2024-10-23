@@ -178,6 +178,13 @@ abstract public class Element : MonoBehaviour
         frame.GetComponent<RectTransform>().position = newFrameVec;
     }
 
+    public void TransObjPos(Vector3 pos)
+    {
+        if (!isShow) return;
+
+        gameObject.transform.localPosition = pos;
+    }
+
     private bool IsUnderMouse()
     {
         PointerEventData pointerEventData = new PointerEventData(eventSystem)

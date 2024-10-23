@@ -15,4 +15,16 @@ public class Account : MonoBehaviour
     [SerializeField] private string mail = "";
     public string Mail
     { get { return mail; } }
+
+    // シリアル通信スクリプトを持つのゲームオブジェクトを設定
+    [SerializeField] private List<SensorDevice> devices = null;
+
+    public void Init()
+    {
+        foreach (SensorDevice device in devices)
+        {
+            // シリアル通信スクリプトを持つゲームオブジェクトを生成
+            device.Create();
+        }
+    }
 }

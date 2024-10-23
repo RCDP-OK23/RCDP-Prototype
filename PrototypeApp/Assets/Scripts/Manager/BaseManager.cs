@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class BaseManager : MonoBehaviour
 {
-    // シリアル通信スクリプトを持つのゲームオブジェクトを設定
-    [SerializeField] private SensorDevice sensorDevice;
-
     // Managerクラスを継承したクラスを持つゲームオブジェクトを設定
     [SerializeField] private GameObject managerObject;
     private Manager manager;
@@ -30,9 +27,6 @@ public class BaseManager : MonoBehaviour
         // メッセージ処理のためのパラメータを初期化
         Params.Init();
 
-        // シリアル通信スクリプトを持つゲームオブジェクトを生成
-        sensorDevice.Create();
-
         // Managerクラスを継承したクラスを持つゲームオブジェクトからManagerクラスを取得
         manager = managerObject.GetComponent<Manager>();
 
@@ -40,6 +34,7 @@ public class BaseManager : MonoBehaviour
         accounts = new Dictionary<int, Account>();
         foreach (Transform account in accountParent.transform)
         {
+            account.gameObject.GetComponent<Account>().Init();
             accounts.Add(account.gameObject.GetComponent<Account>().ID, account.GetComponent<Account>());
         }
 
@@ -110,8 +105,10 @@ public class BaseManager : MonoBehaviour
             Params.strPar == Constants.SCENE_SEARCH ||
             Params.strPar == Constants.SCENE_TOPIC ||
             Params.strPar == Constants.SCENE_MYPAGE ||
-            Params.strPar == Constants.SCENE_BOOKMARK
-        ){
+            Params.strPar == Constants.SCENE_BOOKMARK ||
+            Params.strPar == Constants.SCENE_DETAIL
+        )
+        {
             Exit();
 
             // シーン名を取得（例としてParams.sceneNameを使用）

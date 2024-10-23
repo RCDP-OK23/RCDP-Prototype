@@ -111,8 +111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6c89e206e2a0f49b7576168786093f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  account: {fileID: 0}
   textEl: {fileID: 2355797283373604275}
   tappingImageGroup: {fileID: 4887226011898165965}
+  deviceObj: {fileID: 0}
+  suggestPos:
+  - {x: -320, y: -246, z: 0.03081262}
+  - {x: -320, y: -382.5172, z: 0.03081262}
+  - {x: -320, y: -519.5172, z: 0.03081262}
 --- !u!1 &4682858078899970558
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,15 +520,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4325912966628426673, guid: 5bf3a2093daab8a459fa745521012f8e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5755147
+      value: 0.3981681
       objectReference: {fileID: 0}
     - target: {fileID: 4325912966628426673, guid: 5bf3a2093daab8a459fa745521012f8e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5755147
+      value: 0.3981681
       objectReference: {fileID: 0}
     - target: {fileID: 4325912966628426673, guid: 5bf3a2093daab8a459fa745521012f8e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5755147
+      value: 0.3981681
       objectReference: {fileID: 0}
     - target: {fileID: 4325912966628426673, guid: 5bf3a2093daab8a459fa745521012f8e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -574,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4416828675589000980, guid: 5bf3a2093daab8a459fa745521012f8e, type: 3}
       propertyPath: m_Text
-      value: "\u5834\u6240\u540D : \u30A2\u30AB\u30A6\u30F3\u30C8\u540D"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4416828675589000980, guid: 5bf3a2093daab8a459fa745521012f8e, type: 3}
       propertyPath: m_FontData.m_Alignment

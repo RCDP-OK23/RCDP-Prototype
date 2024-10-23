@@ -4,14 +4,53 @@ using UnityEngine;
 
 public class SuggestParts : MonoBehaviour
 {
-    private Account account = null;
+    [SerializeField] private Account account = null;
 
     [SerializeField] private TextEl textEl = null;
     [SerializeField] private GameObject tappingImageGroup = null;
 
-    public void Create(GameObject accountObj)
+    [SerializeField] private GameObject deviceObj;
+
+    [SerializeField] private List<Vector3> suggestPos;
+
+    private bool isShow = false;
+
+    public void ShowSuggest(ref int suggestCount, int maxSuggestCount)
     {
-        account = accountObj.GetComponent<Account>();
+        if (suggestCount == maxSuggestCount || isShow) return;
+
+        isShow = true;
+        textEl.ShowImages(true, textEl.defImageGroup.name);
+        textEl.ShowText(true, textEl.defText.name);
+
+        textEl.TransObjPos(suggestPos[suggestCount]);
+        suggestCount++;
+    }
+
+    public void TransPosSuggest(ref int suggestCount, int maxSuggestCount)
+    {
+        if (suggestCount == maxSuggestCount) return;
+
+        textEl.TransObjPos(suggestPos[suggestCount]);
+        suggestCount++;
+    }
+
+    public void CloseSuggest(ref int suggestCount)
+    {
+        if (!isShow) return;
+
+        isShow = false;
+        textEl.ShowImages(false, textEl.defImageGroup.name);
+        textEl.ShowText(false, textEl.defText.name);
+
+        suggestCount--;
+    }
+
+    public void CloseSuggest()
+    {
+        isShow = false;
+        textEl.ShowImages(false, textEl.defImageGroup.name);
+        textEl.ShowText(false, textEl.defText.name);
     }
 
     public void TappingEvent()
@@ -29,6 +68,9 @@ public class SuggestParts : MonoBehaviour
     public void TappedEvent()
     {
         Params.msg = Constants.MSG_CHANGE_SCENE;
+        Params.strPar = Constants.SCENE_DETAIL;
+
+        Params.strPar2 = deviceObj.name;
         Params.floPar = account.ID;
     }
 }

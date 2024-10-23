@@ -21,6 +21,7 @@ public class Constants
     public const string SCENE_TOPIC = "Topic";
     public const string SCENE_MYPAGE = "MyPage";
     public const string SCENE_BOOKMARK = "Bookmark";
+    public const string SCENE_DETAIL = "Detail";
 
     // 各エconstンスペクター上で以下の文字列で指定する
     public const string TYPE_BACKGROUND = "Background";
