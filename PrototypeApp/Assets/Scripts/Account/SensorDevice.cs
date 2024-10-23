@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Ports;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -19,6 +20,9 @@ public class SensorData
 
 public class SensorDevice : MonoBehaviour
 {
+    // プロトタイプ版においてNULLかどうか
+    [SerializeField] private bool isNull = false;
+
     // 対象のサイト
     [SerializeField] private string url;
 
@@ -28,11 +32,11 @@ public class SensorDevice : MonoBehaviour
     private string timestamp;
     private int amount;
 
-    // データ保存変数をここに作成。
-
     // シリアル通信の設定及び初期化
     public void Create()
     {
+        if (isNull) return;
+
         // 一定間隔でGetDataメソッドを呼び出す
         //InvokeRepeating(nameof(GetDataCoroutine), 0f, 1f); // 1秒ごとにデータを取得
     }

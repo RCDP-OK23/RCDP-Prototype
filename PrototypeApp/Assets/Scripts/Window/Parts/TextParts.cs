@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class TextParts : MonoBehaviour
 {
     // テキストがタップされたときに実行されるイベント
-    public UnityEvent tappedEvent = null;
+    public UnityEvent<string> tappedEvent = null;
 
     // テキストの要素を取得
     [SerializeField] private TextEl textEl = null;
@@ -35,6 +35,6 @@ public class TextParts : MonoBehaviour
 
     public void TappedEvent()
     {
-        tappedEvent.Invoke();
+        tappedEvent.Invoke("");
     }
 }

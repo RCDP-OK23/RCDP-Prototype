@@ -391,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
       propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EventOpenNotif
+      value: EventNotifAction
       objectReference: {fileID: 0}
     - target: {fileID: 3208484460939908396, guid: 6467f74bc906cb24cbf1c025b617781a, type: 3}
       propertyPath: tappedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -547,6 +547,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6249311444432289540, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
       propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787025299870120653, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: isScroll
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

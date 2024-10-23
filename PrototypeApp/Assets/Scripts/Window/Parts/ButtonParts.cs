@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ButtonParts : MonoBehaviour
 {
     // ボタンがタップされたときに実行されるイベント
-    public UnityEvent tappedEvent = null;
+    public UnityEvent<string> tappedEvent = null;
 
     // ボタンの要素を取得
     [SerializeField] private ButtonEl buttonEl = null;
@@ -30,6 +30,6 @@ public class ButtonParts : MonoBehaviour
 
     public void TappedEvent()
     {
-        tappedEvent.Invoke();
+        tappedEvent.Invoke("");
     }
 }

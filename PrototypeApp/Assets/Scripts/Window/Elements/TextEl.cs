@@ -9,13 +9,12 @@ public class TextEl : Element
 {
     [SerializeField] public Text defText;
     [SerializeField] private GameObject texts;
-    private Dictionary<string, Text> diTexts;
 
     private bool isTapping = false;
 
-    public UnityEvent tappedEvent = null;
-    public UnityEvent tappingEvent = null;
-    public UnityEvent unTappingEvent = null;
+    public UnityEvent<string> tappedEvent = null;
+    public UnityEvent<string> tappingEvent = null;
+    public UnityEvent<string> unTappingEvent = null;
 
     public override void Init()
     {
@@ -25,7 +24,6 @@ public class TextEl : Element
         // テキストの初期化処理
         List<GameObject> textList = GetAllChildren(texts);
 
-        diTexts = new Dictionary<string, Text>();
         for (int i = 0; i < textList.Count; i++)
         {
             textList[i].GetComponent<Text>().enabled = false;
@@ -33,22 +31,6 @@ public class TextEl : Element
             {
                 Debug.LogError("Failed to add " + textList[i].name + " to diTexts.");
             }
-        }
-    }
-
-    public void ShowText(bool val, string name)
-    {
-        if (diTexts.ContainsKey(name))
-        {
-            diTexts[name].enabled = val;
-        }
-    }
-
-    private void ShowAllTexts(bool val)
-    {
-        foreach (KeyValuePair<string, Text> pair in diTexts)
-        {
-            pair.Value.enabled = val;
         }
     }
 
@@ -76,29 +58,29 @@ public class TextEl : Element
         if (IsHover() && tappingEvent != null)
         {
             isTapping = true;
-            tappingEvent.Invoke();
+            tappingEvent.Invoke("");
         }
         else if (!IsHover() && isTapping)
         {
             isTapping = false;
-            unTappingEvent.Invoke();
+            unTappingEvent.Invoke("");
         }
 
-        if (IsClick() && tappedEvent != null) tappedEvent.Invoke();
+        if (IsClick() && tappedEvent != null) tappedEvent.Invoke("");
 #else
         
         if (IsTapping() && tappingEvent != null)
         {
             isTapping = true;
-            tappingEvent.Invoke();
+            tappingEvent.Invoke("");
         }
         else if (!IsTapping() && isTapping)
         {
             isTapping = false;
-            unTappingEvent.Invoke();
+            unTappingEvent.Invoke("");
         }
 
-        if (IsTapped() && tappedEvent != null) tappedEvent.Invoke();
+        if (IsTapped() && tappedEvent != null) tappedEvent.Invoke("");
 #endif
     }
 }

@@ -28,6 +28,9 @@ abstract public class Element : MonoBehaviour
     // 使用する画像を格納
     private Dictionary<string, List<Image>> diImageGroups;
 
+    // 使用するテキストを格納
+    protected Dictionary<string, Text> diTexts;
+
     // 画像グループの表示状態を設定
     private Dictionary<string, bool> diGroupShow;
 
@@ -40,6 +43,8 @@ abstract public class Element : MonoBehaviour
     {
         raycaster = GetComponentInParent<GraphicRaycaster>();
         eventSystem = GetComponentInParent<EventSystem>();
+
+        diTexts = new Dictionary<string, Text>();
 
         InitImages();
     }
@@ -109,6 +114,22 @@ abstract public class Element : MonoBehaviour
         }
     }
 
+    public void ShowText(bool val, string name)
+    {
+        if (diTexts.ContainsKey(name))
+        {
+            diTexts[name].enabled = val;
+        }
+    }
+
+    protected void ShowAllTexts(bool val)
+    {
+        foreach (KeyValuePair<string, Text> pair in diTexts)
+        {
+            pair.Value.enabled = val;
+        }
+    }
+
     // エレメントの初期化処理を記述。初期化時にエレメントは非表示状態にする
     abstract public void Init();
 
@@ -132,12 +153,36 @@ abstract public class Element : MonoBehaviour
             {
                 Vector2 newVec = new Vector2
                 (
-                    pair.Value[i].rectTransform.anchoredPosition.x + vec.x,
-                    pair.Value[i].rectTransform.anchoredPosition.y + vec.y
+                    pair.Value[i].rectTransform.position.x + vec.x,
+                    pair.Value[i].rectTransform.position.y + vec.y
                 );
-                pair.Value[i].rectTransform.anchoredPosition = newVec;
+                pair.Value[i].rectTransform.position = newVec;
             }
         }
+
+        foreach (KeyValuePair<string, Text> pair in diTexts)
+        {
+            Vector2 newVec = new Vector2
+            (
+                pair.Value.rectTransform.position.x + vec.x,
+                pair.Value.rectTransform.position.y + vec.y
+            );
+            pair.Value.rectTransform.position = newVec;
+        }
+
+        Vector2 newFrameVec = new Vector2
+        (
+            frame.GetComponent<RectTransform>().position.x + vec.x,
+            frame.GetComponent<RectTransform>().position.y + vec.y
+        );
+        frame.GetComponent<RectTransform>().position = newFrameVec;
+    }
+
+    public void TransObjPos(Vector3 pos)
+    {
+        if (!isShow) return;
+
+        gameObject.transform.localPosition = pos;
     }
 
     private bool IsUnderMouse()

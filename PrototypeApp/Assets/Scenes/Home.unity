@@ -1403,6 +1403,14 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7787025299870120653, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: isPopUp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787025299870120653, guid: 5e18cd2721f868944bc310c286e01b6b, type: 3}
+      propertyPath: isScroll
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
