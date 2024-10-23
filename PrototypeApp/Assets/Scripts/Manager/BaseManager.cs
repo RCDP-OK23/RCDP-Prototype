@@ -12,6 +12,10 @@ public class BaseManager : MonoBehaviour
     [SerializeField] private GameObject managerObject;
     private Manager manager;
 
+    // 現在アプリに存在するアカウントらの親オブジェクト
+    [SerializeField] private GameObject accountParent;
+    [SerializeField] private Dictionary<int, Account> accounts;
+
     /* 
      * 今回のプロトタイプ版では以下の関数でのみUnityのAwake、Start、Update関数を使用する
      * 他のスクリプトでこれらを使うことは推奨はしないが、作業時間上許容する場合もある
@@ -31,6 +35,13 @@ public class BaseManager : MonoBehaviour
 
         // Managerクラスを継承したクラスを持つゲームオブジェクトからManagerクラスを取得
         manager = managerObject.GetComponent<Manager>();
+
+        // 現在アプリに存在するアカウントらの親オブジェクトからアカウントを取得
+        accounts = new Dictionary<int, Account>();
+        foreach (Transform account in accountParent.transform)
+        {
+            accounts.Add(account.gameObject.GetComponent<Account>().ID, account.GetComponent<Account>());
+        }
 
         // Managerクラスを継承したクラスのAwake関数を実行
         manager.BaseAwake();

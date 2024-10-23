@@ -11,8 +11,6 @@ public class InputBoxEl : Element
     private bool isTapping = false;
     [SerializeField] private InputField inputField = null;
 
-    private string inputText = "";
-
     public override void Init()
     {
         // 継承元クラスの初期化処理を実行
@@ -37,13 +35,6 @@ public class InputBoxEl : Element
 
         // InputFieldの非表示処理
         inputField.gameObject.SetActive(false);
-    }
-
-    public void InputText()
-    {
-        //テキストにinputFieldの内容を反映
-        inputText = inputField.text;
-        Debug.Log(inputText);
     }
 
     public override void Execute()

@@ -12,9 +12,9 @@ public class TextEl : Element
 
     private bool isTapping = false;
 
-    public UnityEvent tappedEvent = null;
-    public UnityEvent tappingEvent = null;
-    public UnityEvent unTappingEvent = null;
+    public UnityEvent<string> tappedEvent = null;
+    public UnityEvent<string> tappingEvent = null;
+    public UnityEvent<string> unTappingEvent = null;
 
     public override void Init()
     {
@@ -58,29 +58,29 @@ public class TextEl : Element
         if (IsHover() && tappingEvent != null)
         {
             isTapping = true;
-            tappingEvent.Invoke();
+            tappingEvent.Invoke("");
         }
         else if (!IsHover() && isTapping)
         {
             isTapping = false;
-            unTappingEvent.Invoke();
+            unTappingEvent.Invoke("");
         }
 
-        if (IsClick() && tappedEvent != null) tappedEvent.Invoke();
+        if (IsClick() && tappedEvent != null) tappedEvent.Invoke("");
 #else
         
         if (IsTapping() && tappingEvent != null)
         {
             isTapping = true;
-            tappingEvent.Invoke();
+            tappingEvent.Invoke("");
         }
         else if (!IsTapping() && isTapping)
         {
             isTapping = false;
-            unTappingEvent.Invoke();
+            unTappingEvent.Invoke("");
         }
 
-        if (IsTapped() && tappedEvent != null) tappedEvent.Invoke();
+        if (IsTapped() && tappedEvent != null) tappedEvent.Invoke("");
 #endif
     }
 }

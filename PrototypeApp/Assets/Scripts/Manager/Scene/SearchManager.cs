@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SearchManager : Manager
 {
@@ -12,6 +13,10 @@ public class SearchManager : Manager
     [SerializeField] private GameObject windowBackground;
 
     [SerializeField] private float historyScrollBottom;
+
+    private string inputText = "";
+    [SerializeField] private InputField inputField = null;
+
     public override void BaseAwake()
     {
         Debug.Log("SearchManagerAwake");
@@ -67,5 +72,11 @@ public class SearchManager : Manager
         {
             ScrollWindows(historyScrollBottom);
         }
+    }
+
+    public void EventInputValChange()
+    {
+        inputText = inputField.text;
+        Debug.Log("InputField Text: " + inputText);
     }
 }
