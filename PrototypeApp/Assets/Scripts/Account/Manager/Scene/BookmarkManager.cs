@@ -1,34 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Principal;
 using UnityEngine;
 
 public class BookmarkManager : Manager
 {
     [SerializeField] private GameObject windowHeader;
     [SerializeField] private GameObject windowFooter;
-    [SerializeField] private GameObject windowWC;
-    [SerializeField] private GameObject windowElevator;
-    [SerializeField] private GameObject windowRoom;
+    [SerializeField] private GameObject windowList;
+    [SerializeField] private GameObject windowNotif;
  
     // Start is called before the first frame update
     public override void BaseAwake()
     {
         // Managerに設定されているすべてのWindowを初期化
-        Init(new List<GameObject> { windowHeader, windowFooter, windowWC, windowElevator, windowRoom });
+        Init(new List<GameObject> { windowHeader, windowFooter,  windowList, windowNotif  });
         // HeaderWindowを表示
         ShowWindow(windowHeader.name);
 
         // FooterWindowを表示
         ShowWindow(windowFooter.name);
 
-        //WCwindowを表示
-        ShowWindow(windowWC.name);
-
-        //Elevatorwindowを表示
-        ShowWindow(windowElevator.name);
-
         //Roomwindowを表示
-        ShowWindow(windowRoom.name);
+        ShowWindow(windowList.name);
+
+       
     }
 
     public override void BaseExit()
