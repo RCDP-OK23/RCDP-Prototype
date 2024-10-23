@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class SuggestParts : MonoBehaviour
 {
-    [SerializeField] private Account account = null;
+    [SerializeField] public GameObject accountObj = null;
+    [SerializeField] private GameObject deviceObj;
 
     [SerializeField] private TextEl textEl = null;
     [SerializeField] private GameObject tappingImageGroup = null;
-
-    [SerializeField] private GameObject deviceObj;
 
     [SerializeField] private List<Vector3> suggestPos;
 
@@ -71,6 +70,6 @@ public class SuggestParts : MonoBehaviour
         Params.strPar = Constants.SCENE_DETAIL;
 
         Params.strPar2 = deviceObj.name;
-        Params.floPar = account.ID;
+        Params.floPar = accountObj.GetComponent<Account>().ID;
     }
 }

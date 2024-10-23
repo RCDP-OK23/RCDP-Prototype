@@ -100,26 +100,9 @@ public class SearchManager : Manager
 
     public void EventInputValChange()
     {
-        inputText = inputField.text;
+        inputText = inputField.text.ToLower();
 
-        string headStr = "";
-        if (inputText.Length > 0) 
-        {
-            headStr = inputText.Substring(0, 1);
-        }
-
-        if (headStr == "I" || headStr == "O" || headStr == "o" || headStr == "В®" || headStr == "Се")
-        {
-            iputOkClass.ShowSuggest(ref suggestCount, maxSuggestCount);
-            iputOkElevator.ShowSuggest(ref suggestCount, maxSuggestCount);
-            oosakaStationWC.ShowSuggest(ref suggestCount, maxSuggestCount);
-        }
-        else if (inputText == "WC") 
-        {
-            CloseAllSuggest();
-            oosakaStationWC.ShowSuggest(ref suggestCount, maxSuggestCount);
-        }
-        else if (inputText == "")
+        if (inputText == "")
         {
             for (int i = 0; i < suggests.Count; i++)
             {
@@ -127,6 +110,53 @@ public class SearchManager : Manager
             }
 
             suggestCount = 0;
+            return;
         }
+
+        List<int> showingSuggestI = new List<int>();
+        for (int i = 0; i < suggests.Count; i++)
+        {
+            if (suggests[i].accountObj.GetComponent<Account>().SearchResult(inputText))
+            {
+                showingSuggestI.Add(i);
+                suggests[i].ShowSuggest(ref suggestCount, maxSuggestCount);
+            }
+            else
+            {
+                CloseAllSuggest();
+                for (int j = 0; j < showingSuggestI.Count; j++)
+                {
+                    suggests[showingSuggestI[j]].ShowSuggest(ref suggestCount, maxSuggestCount);
+                }
+            }
+        }
+
+
+        //string headStr = "";
+        //if (inputText.Length > 0) 
+        //{
+        //    headStr = inputText.Substring(0, 1);
+        //}
+
+        //if (headStr == "I" || headStr == "O" || headStr == "o" || headStr == "В®" || headStr == "Се")
+        //{
+        //    iputOkClass.ShowSuggest(ref suggestCount, maxSuggestCount);
+        //    iputOkElevator.ShowSuggest(ref suggestCount, maxSuggestCount);
+        //    oosakaStationWC.ShowSuggest(ref suggestCount, maxSuggestCount);
+        //}
+        //else if (inputText == "WC") 
+        //{
+        //    CloseAllSuggest();
+        //    oosakaStationWC.ShowSuggest(ref suggestCount, maxSuggestCount);
+        //}
+        //else if (inputText == "")
+        //{
+        //    for (int i = 0; i < suggests.Count; i++)
+        //    {
+        //        suggests[i].CloseSuggest();
+        //    }
+
+        //    suggestCount = 0;
+        //}
     }
 }

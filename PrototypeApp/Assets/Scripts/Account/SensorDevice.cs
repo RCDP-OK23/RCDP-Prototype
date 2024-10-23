@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Ports;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -30,8 +31,6 @@ public class SensorDevice : MonoBehaviour
     // データ保存変数
     private string timestamp;
     private int amount;
-
-    // データ保存変数をここに作成。
 
     // シリアル通信の設定及び初期化
     public void Create()

@@ -1981,7 +1981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0592eea32f6a54aa58b21dec45ba5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 0
   windowHeader: {fileID: 1781459369}
   windowFooter: {fileID: 186078876}
   windowMap: {fileID: 513973931}
