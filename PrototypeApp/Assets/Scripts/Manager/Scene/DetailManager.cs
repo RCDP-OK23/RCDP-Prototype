@@ -19,6 +19,8 @@ public class DetailManager : Manager
     [SerializeField] private GameObject deviceClass;
     [SerializeField] private GameObject deviceElevator;
 
+    [SerializeField] private float historyScrollBottom;
+
     public override void BaseAwake()
     {
         // Managerに設定されているすべてのWindowを初期化
@@ -68,7 +70,7 @@ public class DetailManager : Manager
         ExecuteWindows();
 
         // スクロールされている場合、ウィンドウを移動
-        ScrollWindows();
+        ScrollWindows(historyScrollBottom);
     }
 
     public override void BaseUpdate()
@@ -77,6 +79,6 @@ public class DetailManager : Manager
         ExecuteWindows();
 
         // 各ウィンドウの処理を実行
-        ScrollWindows();
+        ScrollWindows(historyScrollBottom);
     }
 }

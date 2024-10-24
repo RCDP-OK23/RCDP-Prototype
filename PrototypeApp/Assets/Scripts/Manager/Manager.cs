@@ -145,6 +145,7 @@ abstract public class Manager : MonoBehaviour
         float scroll = -Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0)
         {
+            Debug.Log("scroll");
             moveVec.y = scroll * editorScrollSpeed;
 
             movedVec -= moveVec;

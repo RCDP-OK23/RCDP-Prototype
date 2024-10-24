@@ -333,11 +333,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7243001125115500548, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
       propertyPath: m_Text
-      value: "\u6559\u5BA4\u540D:                      \n\u30D7\u30EC\u30CF\u30D6\u767A\u8868\u304C\u5B9F\u969B\n\u306B\u884C\u308F\u308C\u3066\u3044\u308B\u6559\u5BA4"
+      value: "143\u6559\u5BA4:                      \n\u30D7\u30ED\u30C8\u30BF\u30A4\u30D7\u5C55\u793A\u304C\u5B9F\u969B\n\u306B\u884C\u308F\u308C\u3066\u3044\u308B\u6559\u5BA4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243001125115500548, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333917993415120033, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -354.00006
       objectReference: {fileID: 0}
     - target: {fileID: 7844600527370509666, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
       propertyPath: m_Text
-      value: "\u6559\u5BA4\u540D:                      \n\u30D7\u30EC\u30CF\u30D6\u767A\u8868\u304C\u5B9F\u969B\n\u306B\u884C\u308F\u308C\u3066\u3044\u308B\u6559\u5BA4"
+      value: "143\u6559\u5BA4:                      \n\u30D7\u30ED\u30C8\u30BF\u30A4\u30D7\u5C55\u793A\u304C\u5B9F\u969B\n\u306B\u884C\u308F\u308C\u3066\u3044\u308B\u6559\u5BA4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844600527370509666, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898924755076239815, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -354
       objectReference: {fileID: 0}
     - target: {fileID: 8155080926977415683, guid: 86c13280d42006c4c8e6434a33ceecd3, type: 3}
       propertyPath: m_LocalPosition.x
